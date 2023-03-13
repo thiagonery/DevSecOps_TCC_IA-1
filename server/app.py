@@ -1,8 +1,11 @@
-from flask import Flask
-from service.service import service
+from flask import Flask, request
+from flask_cors import CORS
+from service.service import service 
 
 app = Flask(__name__)
 app.register_blueprint(service)
+CORS(app)
+
 
 @app.route('/')
 def home():
@@ -11,3 +14,7 @@ def home():
 
 if(__name__ == "__main__"):
     app.run(debug=True)
+
+
+# terminar as outras perguntas - OK
+# alterar para query params
