@@ -30,7 +30,7 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
         src={focus === 'plan' ? HomeFocused : HomeNotFocused}
         shouldFocus={focus === 'plan'}
         label="Planejamento"
-        to="/home"
+        to="/plan"
       />
       <DrawerItem
         src={focus === 'code' ? HomeFocused : HomeNotFocused}

@@ -4,14 +4,14 @@ import {
   Routes as _Routes,
 } from 'react-router-dom';
 
-import { HomeScreen } from '@screens/Home/HomeScreen';
+import { PlanScreen } from '@screens/Plan/PlanScreen';
 
 export const Routes = () => {
   return (
     <Router>
       <_Routes>
-        {['/', '/home'].map((path) => (
-          <Route path={path} key={path} element={<HomeScreen />} />
+        {['/', '/plan'].map((path) => (
+          <Route path={path} key={path} element={<PlanScreen />} />
         ))}
       </_Routes>
     </Router>

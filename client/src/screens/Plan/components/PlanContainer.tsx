@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Box, Button, Input, Text } from '@components';
 import { useTheme } from '@mui/material';
 
-export const HomeContainer = () => {
+export const PlanContainer = () => {
   const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
