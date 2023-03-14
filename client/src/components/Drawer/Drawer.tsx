@@ -1,5 +1,6 @@
 import HomeFocused from '@assets/icons/home--focused.png';
 import HomeNotFocused from '@assets/icons/home--not-focused.png';
+import { DRAWER_WIDTH } from '@common/constants';
 import { isMobile } from '@common/utils';
 import { Box, Icon, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
@@ -73,7 +74,7 @@ const DrawerItem: React.FC<IDrawerItem> = ({ src, label, shouldFocus, to }) => {
 };
 
 const PAPER_STYLES = {
-  width: '120px',
+  width: DRAWER_WIDTH,
   pt: '44px',
   border: 'none',
   gap: '8px',
