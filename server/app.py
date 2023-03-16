@@ -14,7 +14,4 @@ def home():
 
 if(__name__ == "__main__"):
     app.run(debug=True)
-
-
-# terminar as outras perguntas - OK
-# alterar para query params
+    

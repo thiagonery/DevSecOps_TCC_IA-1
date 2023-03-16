@@ -7,10 +7,9 @@ import json
 
 service = Blueprint('service', __name__)
 
-@service.route('/api/v1/service/pan', methods=['POST'])
+@service.route('/api/v1/service/pan', methods=['GET'])
 def plan():
     try:
-
         # carregando o .env
         load_dotenv()
         key = os.environ['APP_KEY']
@@ -19,15 +18,11 @@ def plan():
         model_engine = 'text-davinci-003'
         openai.api_key = key
 
-        # pegando o json
-        requestJson = request.json
-        
-        data = json.dumps(requestJson)
-        json_to_dict = json.loads(data)
-        
-        # pegando as informações do json
-        technology = json_to_dict["Technology"]
-        sgbd = json_to_dict["SGBD"]
+        # query params
+        query_params = request.args
+
+        technology = query_params["technology"]
+        sgbd = query_params["sgdb"]
 
         prompt = f"quais são as possíveis vulnerabilidades para {technology}, com o banco de dados {sgbd}"
         
@@ -48,11 +43,11 @@ def plan():
         jsonFinal = json.loads(new_json)
 
         return jsonFinal
-    except:
-        return '{ "content": ' + '"'+ "error api is down, try after!" + '"}'
+    except Exception as e:
+        return '{ "content": ' + '"'+ f"`{e}" + '"}'
     
 
-@service.route('/api/v1/service/code', methods=['POST'])
+@service.route('/api/v1/service/code', methods=['GET'])
 def code():
     try:
         # carregando o .env
@@ -63,21 +58,14 @@ def code():
         model_engine = 'text-davinci-003'
         openai.api_key = key
 
-        # pegando o json
-        requestJson = request.json
-
-        data = json.dumps(requestJson)
-        json_to_dict = json.loads(data)
-
+        query_params = request.args
 
         # pegando as informações do json
-        functionality = json_to_dict["functionality"]
-        technology = json_to_dict["Technology"]
-        sgbd = json_to_dict["SGBD"]
+        functionality = query_params["functionality"]
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
 
-
-        prompt = f"dicas para revisão de código de {functionality} em {technology} com {sgbd} pensando em segurança"
-
+        prompt = f"dicas para revisão de código de {functionality} em {technology} com {sgdb} pensando em segurança"
 
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -96,14 +84,13 @@ def code():
         jsonFinal = json.loads(new_json)
 
         return jsonFinal
-    except:
-        return '{ "content": ' + '"'+ "error api is down, try after!" + '"}'
+    except Exception as e:
+        return '{ "content": ' + '"'+ f"{e}" + '"}'
 
 
-@service.route('/api/v1/service/build', methods=['POST'])
+@service.route('/api/v1/service/build', methods=['GET'])
 def build():
      try:
-          
         # carregando o .env
         load_dotenv()
         key = os.environ['APP_KEY']
@@ -112,15 +99,10 @@ def build():
         model_engine = 'text-davinci-003'
         openai.api_key = key
 
-        # pegando o json
-        requestJson = request.json
-
-        data = json.dumps(requestJson)
-        json_to_dict = json.loads(data)
-
+        query_params = request.args
 
         # pegando as informações do json
-        technology = json_to_dict["Technology"]
+        technology = query_params["technology"]
         
         prompt = f"ferramentas de analise de build para {technology} pensando em segurança de aplicação"
 
@@ -142,14 +124,13 @@ def build():
 
         return jsonFinal
 
-     except:
-        return '{ "content": ' + '"'+ "error api is down, try after!" + '"}'
+     except Exception as e:
+        return '{ "content": ' + '"'+ f"{e}" + '"}'
 
 
-@service.route('/api/v1/service/test', methods=['POST'])
+@service.route('/api/v1/service/test', methods=['GET'])
 def teste():
      try:
-                
         # carregando o .env
         load_dotenv()
         key = os.environ['APP_KEY']
@@ -158,17 +139,13 @@ def teste():
         model_engine = 'text-davinci-003'
         openai.api_key = key
 
-        # pegando o json
-        requestJson = request.json
-        
-        data = json.dumps(requestJson)
-        json_to_dict = json.loads(data)
+        query_params = request.args
         
         # pegando as informações do json
-        technology = json_to_dict["Technology"]
-        sgbd = json_to_dict["SGBD"]
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
         
-        prompt = f"como aplicar DAST para uma aplicação em {technology} com {sgbd}"
+        prompt = f"como aplicar DAST para uma aplicação em {technology} com {sgdb}"
 
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -190,3 +167,19 @@ def teste():
 
      except:
         return '{ "content": ' + '"'+ "error api is down, try after!" + '"}'
+
+# @service.route('/teste')
+# def testar():
+    
+#     req = request.args
+#     print(req)
+
+#     teste1 = req['tecnology']
+#     teste2 = req['sgbd']
+
+#     print(teste1)
+#     print("*********************")
+#     print(teste2)
+    
+
+#     return 'teste'
