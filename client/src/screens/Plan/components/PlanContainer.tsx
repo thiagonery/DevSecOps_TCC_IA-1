@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Box, Button, Input, Text } from '@components';
 import { useTheme } from '@mui/material';
 
-export const HomeContainer = () => {
+export const PlanContainer = () => {
   const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
@@ -11,6 +11,9 @@ export const HomeContainer = () => {
   return (
     <Box gap="24px">
       <Text variant="h1" color={theme.palette.primary.main}>
+        PLANEJAMENTO
+      </Text>
+      <Text fontSize="22px" color={theme.palette.primary.main}>
         Comece o planejamento do seu projeto especificando a tecnologia e o
         banco de dados utilizado.
       </Text>
