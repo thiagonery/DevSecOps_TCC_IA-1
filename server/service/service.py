@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 import openai
 import os
 from dotenv import load_dotenv
@@ -7,7 +7,7 @@ import json
 
 service = Blueprint('service', __name__)
 
-@service.route('/api/v1/service/pan', methods=['GET'])
+@service.route('/api/v1/service/plan', methods=['GET'])
 def plan():
     try:
         # carregando o .env
@@ -45,7 +45,6 @@ def plan():
         return jsonFinal
     except Exception as e:
         return '{ "content": ' + '"'+ f"`{e}" + '"}'
-    
 
 @service.route('/api/v1/service/code', methods=['GET'])
 def code():
@@ -87,7 +86,6 @@ def code():
     except Exception as e:
         return '{ "content": ' + '"'+ f"{e}" + '"}'
 
-
 @service.route('/api/v1/service/build', methods=['GET'])
 def build():
      try:
@@ -127,7 +125,6 @@ def build():
      except Exception as e:
         return '{ "content": ' + '"'+ f"{e}" + '"}'
 
-
 @service.route('/api/v1/service/test', methods=['GET'])
 def teste():
      try:
@@ -165,21 +162,159 @@ def teste():
 
         return jsonFinal
 
-     except:
-        return '{ "content": ' + '"'+ "error api is down, try after!" + '"}'
+     except Exception as e:
+        return '{ "content": ' + '"'+ f"{e}" + '"}'
 
-# @service.route('/teste')
-# def testar():
+@service.route('/api/v1/service/deploy', methods=['GET'])
+def deploy():
+    try:
+        # carregando o .env
+        load_dotenv()
+        key = os.environ['APP_KEY']
+        
+        # modo de texto padrão
+        model_engine = 'text-davinci-003'
+        openai.api_key = key
+
+        query_params = request.args
+
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
+
+        prompt = f"Ferramentas de deploy para uma aplicação em {technology} e {sgdb} priorizando segurança"
+
+         # essa parte faz a configuração da inteligência aritificial
+        completion = openai.Completion.create(
+        engine = model_engine,
+        prompt = prompt,
+        max_tokens = 3666,
+        temperature = 0.5
+        )
+        
+        # assim eu devolvo a resposta
+        response = completion.choices[0].text
+        new_response = response.replace("\n","").replace("ql?","")
     
-#     req = request.args
-#     print(req)
+        # retornando um novo json
+        new_json = '{ "content": ' + '"'+ new_response + '"}'
+        jsonFinal = json.loads(new_json)
 
-#     teste1 = req['tecnology']
-#     teste2 = req['sgbd']
-
-#     print(teste1)
-#     print("*********************")
-#     print(teste2)
+        return jsonFinal
+    except Exception as e:
+        return '{ "content": ' + '"'+ f"{e}" + '"}'
     
+@service.route('/api/v1/service/release', methods=['GET'])
+def release():
+    try:
+        # carregando o.env
+        load_dotenv()
+        key = os.environ['APP_KEY']
+        
+        # modo de texto padrão
+        model_engine = 'text-davinci-003'
+        openai.api_key = key
 
-#     return 'teste'
+        query_params = request.args
+
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
+
+        prompt = f"Planejamento de um pentest para uma aplicação em {technology} e {sgdb}"
+        
+        # essa parte faz a configuração da inteligência aritificial
+        completion = openai.Completion.create(
+        engine = model_engine,
+        prompt = prompt,
+        max_tokens = 3666,
+        temperature = 0.5
+        )
+        
+        # assim eu devolvo a resposta
+        response = completion.choices[0].text
+        new_response = response.replace("\n","").replace("ql?","")
+    
+        # retornando um novo json
+        new_json = '{ "content": ' + '"'+ new_response + '"}'
+        jsonFinal = json.loads(new_json)
+
+        return jsonFinal
+
+
+    except Exception as e:
+        return '{ "content":'+ '"'+ f"`{e}" + '"}'
+
+@service.route('/api/v1/service/operate', methods=['GET'])
+def operate():
+    try:
+        # carregando o.env
+        load_dotenv()
+        key = os.environ['APP_KEY']
+        
+        # modo de texto padrão
+        model_engine = 'text-davinci-003'
+        openai.api_key = key
+
+        query_params = request.args
+
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
+
+        prompt = f"Passo a passo para implementar logs em uma aplicação em {technology} e {sgdb}, incluindo ferramentas de monitoramento e analise de logs"
+        
+        # essa parte faz a configuração da inteligência aritificial
+        completion = openai.Completion.create(
+        engine = model_engine,
+        prompt = prompt,
+        max_tokens = 3666,
+        temperature = 0.5
+        )
+        
+        # assim eu devolvo a resposta
+        response = completion.choices[0].text
+        new_response = response.replace("\n","").replace("ql?","")
+    
+        # retornando um novo json
+        new_json = '{ "content": ' + '"'+ new_response + '"}'
+        jsonFinal = json.loads(new_json)
+
+        return jsonFinal
+    except Exception as e:
+        return '{ "content":'+ '"'+ f"`{e}" + '"}'
+
+@service.route('/api/v1/service/monitor', methods=['GET'])
+def monitor():
+    try:
+        # carregando o.env
+        load_dotenv()
+        key = os.environ['APP_KEY']
+        
+        # modo de texto padrão
+        model_engine = 'text-davinci-003'
+        openai.api_key = key
+
+        query_params = request.args
+
+        technology = query_params["technology"]
+        sgdb = query_params["sgdb"]
+
+        prompt = f"Dicas para implementar um SIEM para uma aplicação em {technology} e {sgdb}"
+        
+        # essa parte faz a configuração da inteligência aritificial
+        completion = openai.Completion.create(
+        engine = model_engine,
+        prompt = prompt,
+        max_tokens = 3666,
+        temperature = 0.5
+        )
+        
+        # assim eu devolvo a resposta
+        response = completion.choices[0].text
+        new_response = response.replace("\n","").replace("ql?","")
+    
+        # retornando um novo json
+        new_json = '{ "content": ' + '"'+ new_response + '"}'
+        jsonFinal = json.loads(new_json)
+
+        return jsonFinal
+    except Exception as e:
+        return '{ "content":'+ '"'+ f"`{e}" + '"}'
