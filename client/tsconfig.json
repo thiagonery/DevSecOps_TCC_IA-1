@@ -21,7 +21,8 @@
       "@common/*": ["src/common/*"],
       "@screens/*": ["src/screens/*"],
       "@assets/*": ["src/assets/*"],
-      "@themes/*": ["src/themes/*"]
+      "@themes/*": ["src/themes/*"],
+      "@config/*": ["src/config/*"]
     }
   },
   "include": ["src"],
