@@ -2,11 +2,18 @@ import { useState } from 'react';
 
 import { Box, Button, Input, Text } from '@components';
 import { useTheme } from '@mui/material';
+import { fetchGPTPlan } from '@services/gpt';
 
 export const PlanContainer = () => {
   const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
+
+  const handlefetchGPTPlan = () => {
+    fetchGPTPlan(techValue, dataBaseValue)
+      .then((res) => res.data)
+      .catch((err) => err.response.data);
+  };
 
   return (
     <Box gap="24px">
@@ -32,7 +39,7 @@ export const PlanContainer = () => {
           label="Banco de dados"
         />
       </Box>
-      <Button text="Confirmar" />
+      <Button text="Confirmar" onClick={handlefetchGPTPlan} />
       <>
         {techValue && dataBaseValue && (
           <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
