@@ -22,7 +22,7 @@ def plan():
         query_params = request.args
 
         technology = query_params["technology"]
-        sgbd = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
         prompt = f"quais são as possíveis vulnerabilidades para {technology}, com o banco de dados {sgbd}"
         
@@ -62,9 +62,9 @@ def code():
         # pegando as informações do json
         functionality = query_params["functionality"]
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
-        prompt = f"dicas para revisão de código de {functionality} em {technology} com {sgdb} pensando em segurança"
+        prompt = f"dicas para revisão de código de {functionality} em {technology} com {sgbd} pensando em segurança"
 
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -140,9 +140,9 @@ def teste():
         
         # pegando as informações do json
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
         
-        prompt = f"como aplicar DAST para uma aplicação em {technology} com {sgdb}"
+        prompt = f"como aplicar DAST para uma aplicação em {technology} com {sgbd}"
 
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -179,9 +179,9 @@ def deploy():
         query_params = request.args
 
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
-        prompt = f"Ferramentas de deploy para uma aplicação em {technology} e {sgdb} priorizando segurança"
+        prompt = f"Ferramentas de deploy para uma aplicação em {technology} e {sgbd} priorizando segurança"
 
          # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -217,9 +217,9 @@ def release():
         query_params = request.args
 
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
-        prompt = f"Planejamento de um pentest para uma aplicação em {technology} e {sgdb}"
+        prompt = f"Planejamento de um pentest para uma aplicação em {technology} e {sgbd}"
         
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -257,9 +257,9 @@ def operate():
         query_params = request.args
 
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
-        prompt = f"Passo a passo para implementar logs em uma aplicação em {technology} e {sgdb}, incluindo ferramentas de monitoramento e analise de logs"
+        prompt = f"Passo a passo para implementar logs em uma aplicação em {technology} e {sgbd}, incluindo ferramentas de monitoramento e analise de logs"
         
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
@@ -295,9 +295,9 @@ def monitor():
         query_params = request.args
 
         technology = query_params["technology"]
-        sgdb = query_params["sgdb"]
+        sgbd = query_params["sgbd"]
 
-        prompt = f"Dicas para implementar um SIEM para uma aplicação em {technology} e {sgdb}"
+        prompt = f"Dicas para implementar um SIEM para uma aplicação em {technology} e {sgbd}"
         
         # essa parte faz a configuração da inteligência aritificial
         completion = openai.Completion.create(
