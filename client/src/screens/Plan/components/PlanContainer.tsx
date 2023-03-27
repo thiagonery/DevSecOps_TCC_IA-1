@@ -8,11 +8,12 @@ export const PlanContainer = () => {
   const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
+  const [gptResponse, setGptResponse] = useState('');
 
   const handlefetchGPTPlan = () => {
     fetchGPTPlan(techValue, dataBaseValue)
-      .then((res) => res.data)
-      .catch((err) => err.response.data);
+      .then((res) => setGptResponse(res.data.content))
+      .catch((err) => console.log(err.response.data));
   };
 
   return (
@@ -41,10 +42,15 @@ export const PlanContainer = () => {
       </Box>
       <Button text="Confirmar" onClick={handlefetchGPTPlan} />
       <>
-        {techValue && dataBaseValue && (
-          <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-            {`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
-          </Text>
+        {gptResponse && (
+          <>
+            <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
+              {`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
+            </Text>
+            <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
+              {gptResponse}
+            </Text>
+          </>
         )}
       </>
     </Box>
