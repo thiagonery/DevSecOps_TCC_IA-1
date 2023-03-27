@@ -12,6 +12,8 @@ export const PlanContainer = () => {
   const [gptResponse, setGptResponse] = useState('');
   const [status, setStatus] = useState<Status>('idle');
 
+  const inputs = [techValue, dataBaseValue];
+
   const handlefetchGPTPlan = () => {
     setStatus('pending');
 
@@ -52,7 +54,11 @@ export const PlanContainer = () => {
       </Box>
       <Button
         text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
-        disabled={status === 'succeeded' || status === 'pending'}
+        disabled={
+          status === 'succeeded' ||
+          status === 'pending' ||
+          inputs.some((input) => input === '')
+        }
         onClick={handlefetchGPTPlan}
       />
       <>
