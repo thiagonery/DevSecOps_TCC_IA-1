@@ -17,7 +17,7 @@ def home():
 
 if(__name__ == '__main__'):
     if os.environ['ENV_MODE'] == 'production':
-        serve(app, host='0.0.0.0', port=3001)
+        serve(app, host='0.0.0.0', port=5000)
     else: 
         app.run(debug=True)
         
