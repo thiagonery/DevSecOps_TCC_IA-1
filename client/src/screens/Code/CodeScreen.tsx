@@ -1,16 +1,13 @@
 import React from 'react';
 
-import { Background, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { Background } from '@components';
+
+import { CodeContainer } from './components/CodeContainer';
 
 export const CodeScreen: React.FC = () => {
-  const theme = useTheme();
-
   return (
     <Background drawerFocus="code">
-      <Text variant="h1" color={theme.palette.primary.main}>
-        CODE
-      </Text>
+      <CodeContainer />
     </Background>
   );
 };
