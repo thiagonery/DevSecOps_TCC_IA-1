@@ -13,3 +13,6 @@ export const fetchGPTCode = (
   instance({
     url: `/api/v1/service/code?functionality=${feature}&technology=${technology}&sgbd=${dbms}`,
   });
+
+export const fetchGPTBuild = (technology: string) =>
+  instance({ url: `/api/v1/service/build?technology=${technology}` });
