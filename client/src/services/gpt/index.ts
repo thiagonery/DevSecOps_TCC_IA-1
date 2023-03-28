@@ -16,3 +16,8 @@ export const fetchGPTCode = (
 
 export const fetchGPTBuild = (technology: string) =>
   instance({ url: `/api/v1/service/build?technology=${technology}` });
+
+export const fetchGPTTest = (technology: string, dbms: string) =>
+  instance({
+    url: `/api/v1/service/test?technology=${technology}&sgbd=${dbms}`,
+  });
