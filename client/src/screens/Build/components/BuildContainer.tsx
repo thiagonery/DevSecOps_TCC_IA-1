@@ -54,7 +54,7 @@ export const BuildContainer = () => {
         {gptResponse && (
           <>
             <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-              {`Ferramentas de análise de build para ${techValue} pensando na segurança da aplicação.`}
+              {`Ferramentas de análise de build para "${techValue}" com foco na segurança da aplicação.`}
             </Text>
             <Text fontSize="22px" color={theme.palette.primary.main}>
               {gptResponse}
