@@ -31,7 +31,7 @@ export const PlanContainer = () => {
   return (
     <Box gap="24px">
       <Text variant="h1" color={theme.palette.primary.main}>
-        ETAPA DE PLANEJAMENTO
+        ETAPA DE PLANEJAMENTO (PLAN)
       </Text>
       <Text fontSize="22px" color={theme.palette.primary.main}>
         Comece o planejamento do seu projeto especificando a tecnologia e o
