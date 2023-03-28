@@ -1,16 +1,11 @@
 import React from 'react';
 
-import { Background, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { Background } from '@components';
 
-export const BuildScreen: React.FC = () => {
-  const theme = useTheme();
+import { BuildContainer } from './components/BuildContainer';
 
-  return (
-    <Background drawerFocus="build">
-      <Text variant="h1" color={theme.palette.primary.main}>
-        BUILD
-      </Text>
-    </Background>
-  );
-};
+export const BuildScreen: React.FC = () => (
+  <Background drawerFocus="build">
+    <BuildContainer />
+  </Background>
+);
