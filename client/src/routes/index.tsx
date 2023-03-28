@@ -7,6 +7,7 @@ import {
 import { BuildScreen } from '@screens/Build/BuildScreen';
 import { CodeScreen } from '@screens/Code/CodeScreen';
 import { PlanScreen } from '@screens/Plan/PlanScreen';
+import { TestScreen } from '@screens/Test/TestScreen';
 
 export const Routes = () => {
   return (
@@ -17,6 +18,7 @@ export const Routes = () => {
         ))}
         <Route path="/code" element={<CodeScreen />} />
         <Route path="/build" element={<BuildScreen />} />
+        <Route path="/test" element={<TestScreen />} />
       </_Routes>
     </Router>
   );
