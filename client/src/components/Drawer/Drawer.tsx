@@ -50,6 +50,12 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
         label="Test"
         to="/test"
       />
+      <DrawerItem
+        src={focus === 'deploy' ? HomeFocused : HomeNotFocused}
+        shouldFocus={focus === 'deploy'}
+        label="Deploy"
+        to="/deploy"
+      />
     </MuiDrawer>
   );
 };
