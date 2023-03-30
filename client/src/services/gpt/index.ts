@@ -21,3 +21,8 @@ export const fetchGPTTest = (technology: string, dbms: string) =>
   instance({
     url: `/api/v1/service/test?technology=${technology}&sgbd=${dbms}`,
   });
+
+export const fetchGPTDeploy = (technology: string, dbms: string) =>
+  instance({
+    url: `/api/v1/service/deploy?technology=${technology}&sgbd=${dbms}`,
+  });
