@@ -7,6 +7,7 @@ import {
 import { BuildScreen } from '@screens/Build/BuildScreen';
 import { CodeScreen } from '@screens/Code/CodeScreen';
 import { DeployScreen } from '@screens/Deploy/DeployScreen';
+import { OperateScreen } from '@screens/Operate/OperateScreen';
 import { PlanScreen } from '@screens/Plan/PlanScreen';
 import { ReleaseScreen } from '@screens/Release/ReleaseScreen';
 import { TestScreen } from '@screens/Test/TestScreen';
@@ -23,6 +24,7 @@ export const Routes = () => {
         <Route path="/test" element={<TestScreen />} />
         <Route path="/deploy" element={<DeployScreen />} />
         <Route path="/release" element={<ReleaseScreen />} />
+        <Route path="/operate" element={<OperateScreen />} />
       </_Routes>
     </Router>
   );
