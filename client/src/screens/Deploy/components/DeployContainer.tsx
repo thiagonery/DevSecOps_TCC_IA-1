@@ -64,7 +64,7 @@ export const DeployContainer = () => {
         {gptResponse && (
           <>
             <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-              {`Ferramentas de deploy para utilizando ${techValue} e ${dataBaseValue}, priorizando segurança:`}
+              {`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
             </Text>
             <Text fontSize="22px" color={theme.palette.primary.main}>
               {gptResponse}
