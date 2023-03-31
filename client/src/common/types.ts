@@ -11,6 +11,7 @@ export type DrawerScreens =
   | 'test'
   | 'deploy'
   | 'release'
-  | 'operate';
+  | 'operate'
+  | 'monitor';
 
 export type Status = 'idle' | 'pending' | 'succeeded' | 'failed';
