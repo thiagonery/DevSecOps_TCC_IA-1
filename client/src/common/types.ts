@@ -10,6 +10,7 @@ export type DrawerScreens =
   | 'build'
   | 'test'
   | 'deploy'
-  | 'release';
+  | 'release'
+  | 'operate';
 
 export type Status = 'idle' | 'pending' | 'succeeded' | 'failed';
