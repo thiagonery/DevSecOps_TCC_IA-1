@@ -29,7 +29,7 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       <DrawerItem
         src={focus === 'plan' ? HomeFocused : HomeNotFocused}
         shouldFocus={focus === 'plan'}
-        label="Planejamento"
+        label="Plan"
         to="/plan"
       />
       <DrawerItem
@@ -55,6 +55,12 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
         shouldFocus={focus === 'deploy'}
         label="Deploy"
         to="/deploy"
+      />
+      <DrawerItem
+        src={focus === 'release' ? HomeFocused : HomeNotFocused}
+        shouldFocus={focus === 'release'}
+        label="Release"
+        to="/release"
       />
     </MuiDrawer>
   );
