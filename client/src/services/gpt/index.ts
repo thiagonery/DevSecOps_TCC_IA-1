@@ -31,3 +31,8 @@ export const fetchGPTRelease = (technology: string, dbms: string) =>
   instance({
     url: `/api/v1/service/release?technology=${technology}&sgbd=${dbms}`,
   });
+
+export const fetchGPTOperate = (technology: string, dbms: string) =>
+  instance({
+    url: `/api/v1/service/operate?technology=${technology}&sgbd=${dbms}`,
+  });
