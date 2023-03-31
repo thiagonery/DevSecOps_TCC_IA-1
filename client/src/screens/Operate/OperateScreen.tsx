@@ -37,8 +37,7 @@ export const OperateScreen: React.FC = () => {
           ETAPA DE OPERAÇÃO (OPERATE)
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
-          Especifique a funcionalidade e suas tecnologias na etapa de operação
-          da aplicação.
+          Especifique as tecnologias na etapa de operação da aplicação.
         </Text>
 
         <Box flexDirection="row" gap="18px">
@@ -68,7 +67,7 @@ export const OperateScreen: React.FC = () => {
           {gptResponse && (
             <>
               <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-                {`Planejamento de um pentest para uma aplicação utilizando "${techValue}" e "${dataBaseValue}":`}
+                {`Implantação de ferramentas de monitoramento e analise de logs, utilizando "${techValue}" e "${dataBaseValue}":`}
               </Text>
               <Text fontSize="22px" color={theme.palette.primary.main}>
                 {gptResponse}
