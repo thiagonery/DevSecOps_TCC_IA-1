@@ -34,7 +34,7 @@ export const TestScreen: React.FC = () => {
     <Background drawerFocus="test">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          ETAPA DE TESTE (TEST)
+          Etapa - TEST
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Melhores práticas de teste para as tecnologias utilizadas na sua
