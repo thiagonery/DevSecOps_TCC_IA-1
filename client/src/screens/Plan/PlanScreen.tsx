@@ -33,7 +33,7 @@ export const PlanScreen: React.FC = () => {
     <Background drawerFocus="plan">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          PLAN
+          Etapa - PLAN
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Comece o planejamento do seu projeto especificando a tecnologia e o
