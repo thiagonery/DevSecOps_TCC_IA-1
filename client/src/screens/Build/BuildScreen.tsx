@@ -31,7 +31,7 @@ export const BuildScreen: React.FC = () => {
     <Background drawerFocus="build">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          ETAPA DE CONSTRUÇÃO (BUILD)
+          Etapa - BUILD
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Especifique a tecnologia utilizada na etapa de build.
