@@ -34,7 +34,7 @@ export const DeployScreen: React.FC = () => {
     <Background drawerFocus="deploy">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          ETAPA DE IMPLANTAÇÃO (DEPLOY)
+          Etapa - DEPLOY
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Ferramentas de implantação com suporte para suas tecnologias.
