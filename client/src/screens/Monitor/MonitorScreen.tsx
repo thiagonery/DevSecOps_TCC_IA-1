@@ -34,7 +34,7 @@ export const MonitorScreen: React.FC = () => {
     <Background drawerFocus="monitor">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          ETAPA DE MONITORAMENTO (MONITOR)
+          Etapa - MONITOR
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Especifique as tecnologias na etapa de monitoramento da aplicação.
