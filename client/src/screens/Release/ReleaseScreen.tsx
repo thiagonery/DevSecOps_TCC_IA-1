@@ -34,7 +34,7 @@ export const ReleaseScreen: React.FC = () => {
     <Background drawerFocus="release">
       <Box gap="24px">
         <Text variant="h1" color={theme.palette.primary.main}>
-          ETAPA DE LIBERAÇÃO (RELEASE)
+          Etapa - RELEASE
         </Text>
         <Text fontSize="22px" color={theme.palette.primary.main}>
           Especifique as tecnologias na etapa de liberação da aplicação.
