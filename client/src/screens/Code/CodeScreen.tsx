@@ -24,9 +24,8 @@ export const CodeScreen: React.FC = () => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
-      .catch((err) => {
+      .catch(() => {
         setStatus('failed');
-        console.log(err.response.data);
       });
   };
 
