@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 
-import { DrawerScreens, Status } from '@common/types';
-import { Background, SkeletonLayout } from '@components';
-import { Box, Button, Input, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { Status } from '@common/types';
+import { SkeletonLayout } from '@components';
+import { Box, Button, Input } from '@components';
 import { fetchGPTPlan } from '@services/gpt';
 
 export const PlanScreen: React.FC = () => {
