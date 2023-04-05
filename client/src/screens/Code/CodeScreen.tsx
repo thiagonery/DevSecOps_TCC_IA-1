@@ -2,13 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 
 import { Status } from '@common/types';
-import { Background } from '@components';
-import { Box, Button, Input, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { SkeletonLayout } from '@components';
+import { Box, Button, Input } from '@components';
 import { fetchGPTCode } from '@services/gpt';
 
 export const CodeScreen: React.FC = () => {
-  const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [featureValue, setFeatureValue] = useState('');
@@ -33,63 +31,44 @@ export const CodeScreen: React.FC = () => {
   };
 
   return (
-    <Background drawerFocus="code">
-      <Box gap="24px">
-        <Text variant="h1" color={theme.palette.primary.main}>
-          Etapa - CODE
-        </Text>
-        <Text fontSize="22px" color={theme.palette.primary.main}>
-          Especifique a funcionalidade e suas tecnologias na etapa de
-          codificação.
-        </Text>
-
-        <Box flexDirection="row" gap="18px">
-          <Input
-            value={featureValue}
-            onChange={(e) => setFeatureValue(e.target.value)}
-            fullWidth
-            label="Funcionalidade"
-          />
-          <Input
-            value={techValue}
-            onChange={(e) => setTechValue(e.target.value)}
-            fullWidth
-            label="Tecnologia"
-          />
-          <Input
-            value={dataBaseValue}
-            onChange={(e) => setDataBaseValue(e.target.value)}
-            fullWidth
-            label="Banco de dados"
-          />
-        </Box>
-        <Button
-          text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
-          disabled={
-            status === 'succeeded' ||
-            status === 'pending' ||
-            inputs.some((input) => input === '')
-          }
-          onClick={handleFetchGPTPlan}
+    <SkeletonLayout
+      drawerFocus="code"
+      title="Etapa - CODE"
+      subtitle="Especifique a funcionalidade e suas tecnologias na etapa de
+      codificação."
+      responseIntro={`Revisão de código para a funcionalidade "${featureValue}", utilizando ${techValue} e ${dataBaseValue}, com foco em segurança`}
+      gptResponse={gptResponse}
+      status={status}
+    >
+      <Box flexDirection="row" gap="18px">
+        <Input
+          value={featureValue}
+          onChange={(e) => setFeatureValue(e.target.value)}
+          fullWidth
+          label="Funcionalidade"
         />
-        <>
-          {gptResponse && (
-            <>
-              <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-                {`Revisão de código para a funcionalidade "${featureValue}", utilizando ${techValue} e ${dataBaseValue}, com foco em segurança`}
-              </Text>
-              <Text fontSize="22px" color={theme.palette.primary.main}>
-                {gptResponse}
-              </Text>
-            </>
-          )}
-          {status === 'failed' && (
-            <Text fontSize="22px" color={theme.palette.primary.main}>
-              Falha ao carregar resposta. Por favor, tente novamente mais tarde.
-            </Text>
-          )}
-        </>
+        <Input
+          value={techValue}
+          onChange={(e) => setTechValue(e.target.value)}
+          fullWidth
+          label="Tecnologia"
+        />
+        <Input
+          value={dataBaseValue}
+          onChange={(e) => setDataBaseValue(e.target.value)}
+          fullWidth
+          label="Banco de dados"
+        />
       </Box>
-    </Background>
+      <Button
+        text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
+        disabled={
+          status === 'succeeded' ||
+          status === 'pending' ||
+          inputs.some((input) => input === '')
+        }
+        onClick={handleFetchGPTPlan}
+      />
+    </SkeletonLayout>
   );
 };
