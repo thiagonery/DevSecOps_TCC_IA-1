@@ -1,19 +1,9 @@
-import { DrawerScreens, Status } from '@common/types';
 import { useTheme } from '@mui/material';
 
 import { Background } from '../Layout/Background';
 import { Box } from '../Layout/Box';
 import { Text } from '../Text';
-
-interface ISkeletonLayout {
-  drawerFocus: DrawerScreens;
-  title: string;
-  subtitle: string;
-  responseIntro: string;
-  gptResponse: string;
-  status: Status;
-  children: React.ReactElement | React.ReactElement[];
-}
+import { ISkeletonLayout } from './SkeletonLayout.types';
 
 export const SkeletonLayout: React.FC<ISkeletonLayout> = ({
   drawerFocus,
