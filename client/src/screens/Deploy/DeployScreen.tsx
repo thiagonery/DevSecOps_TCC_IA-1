@@ -2,13 +2,11 @@ import React from 'react';
 import { useState } from 'react';
 
 import { Status } from '@common/types';
-import { Background } from '@components';
-import { Box, Button, Input, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { SkeletonLayout } from '@components';
+import { Box, Button, Input } from '@components';
 import { fetchGPTDeploy } from '@services/gpt';
 
 export const DeployScreen: React.FC = () => {
-  const theme = useTheme();
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [gptResponse, setGptResponse] = useState('');
@@ -31,56 +29,37 @@ export const DeployScreen: React.FC = () => {
   };
 
   return (
-    <Background drawerFocus="deploy">
-      <Box gap="24px">
-        <Text variant="h1" color={theme.palette.primary.main}>
-          Etapa - DEPLOY
-        </Text>
-        <Text fontSize="22px" color={theme.palette.primary.main}>
-          Ferramentas de implantação com suporte para suas tecnologias.
-        </Text>
-
-        <Box flexDirection="row" gap="18px">
-          <Input
-            value={techValue}
-            onChange={(e) => setTechValue(e.target.value)}
-            fullWidth
-            label="Tecnologia"
-          />
-          <Input
-            value={dataBaseValue}
-            onChange={(e) => setDataBaseValue(e.target.value)}
-            fullWidth
-            label="Banco de dados"
-          />
-        </Box>
-        <Button
-          text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
-          disabled={
-            status === 'succeeded' ||
-            status === 'pending' ||
-            inputs.some((input) => input === '')
-          }
-          onClick={handleFetchGPTDeploy}
+    <SkeletonLayout
+      drawerFocus="deploy"
+      title="Etapa - DEPLOY"
+      subtitle="Ferramentas de implantação com suporte para suas tecnologias."
+      responseIntro={`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
+      gptResponse={gptResponse}
+      status={status}
+    >
+      <Box flexDirection="row" gap="18px">
+        <Input
+          value={techValue}
+          onChange={(e) => setTechValue(e.target.value)}
+          fullWidth
+          label="Tecnologia"
         />
-        <>
-          {gptResponse && (
-            <>
-              <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
-                {`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
-              </Text>
-              <Text fontSize="22px" color={theme.palette.primary.main}>
-                {gptResponse}
-              </Text>
-            </>
-          )}
-          {status === 'failed' && (
-            <Text fontSize="22px" color={theme.palette.primary.main}>
-              Falha ao carregar resposta. Por favor, tente novamente mais tarde.
-            </Text>
-          )}
-        </>
+        <Input
+          value={dataBaseValue}
+          onChange={(e) => setDataBaseValue(e.target.value)}
+          fullWidth
+          label="Banco de dados"
+        />
       </Box>
-    </Background>
+      <Button
+        text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
+        disabled={
+          status === 'succeeded' ||
+          status === 'pending' ||
+          inputs.some((input) => input === '')
+        }
+        onClick={handleFetchGPTDeploy}
+      />
+    </SkeletonLayout>
   );
 };
