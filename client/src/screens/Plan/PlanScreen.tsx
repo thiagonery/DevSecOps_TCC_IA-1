@@ -22,9 +22,7 @@ export const PlanScreen: React.FC = () => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
-      .catch(() => {
-        setStatus('failed');
-      });
+      .catch(() => setStatus('failed'));
   };
   return (
     <SkeletonLayout

@@ -9,7 +9,6 @@ import { fetchGPTRelease } from '@services/gpt';
 export const ReleaseScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
-
   const [gptResponse, setGptResponse] = useState('');
   const [status, setStatus] = useState<Status>('idle');
 
@@ -23,11 +22,9 @@ export const ReleaseScreen: React.FC = () => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
-      .catch((err) => {
-        setStatus('failed');
-        console.log(err.response.data);
-      });
+      .catch(() => setStatus('failed'));
   };
+
   return (
     <SkeletonLayout
       drawerFocus="release"

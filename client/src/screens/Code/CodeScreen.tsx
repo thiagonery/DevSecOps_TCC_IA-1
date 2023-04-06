@@ -10,7 +10,6 @@ export const CodeScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [featureValue, setFeatureValue] = useState('');
-
   const [gptResponse, setGptResponse] = useState('');
   const [status, setStatus] = useState<Status>('idle');
 

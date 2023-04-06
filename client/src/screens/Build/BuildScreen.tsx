@@ -8,7 +8,6 @@ import { fetchGPTBuild } from '@services/gpt';
 
 export const BuildScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
-
   const [gptResponse, setGptResponse] = useState('');
   const [status, setStatus] = useState<Status>('idle');
 
@@ -20,10 +19,7 @@ export const BuildScreen: React.FC = () => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
-      .catch((err) => {
-        setStatus('failed');
-        console.log(err.response.data);
-      });
+      .catch(() => setStatus('failed'));
   };
   return (
     <SkeletonLayout

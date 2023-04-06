@@ -22,10 +22,7 @@ export const TestScreen: React.FC = () => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
-      .catch((err) => {
-        setStatus('failed');
-        console.log(err.response.data);
-      });
+      .catch(() => setStatus('failed'));
   };
 
   return (
