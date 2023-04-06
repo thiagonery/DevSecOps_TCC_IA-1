@@ -16,7 +16,7 @@ export const CodeScreen: React.FC = () => {
 
   const inputs = [techValue, dataBaseValue, featureValue];
 
-  const handleFetchGPTPlan = () => {
+  const handleFetchGPTCode = () => {
     setStatus('pending');
 
     fetchGPTCode(techValue, dataBaseValue, featureValue)
@@ -66,7 +66,7 @@ export const CodeScreen: React.FC = () => {
           status === 'pending' ||
           inputs.some((input) => input === '')
         }
-        onClick={handleFetchGPTPlan}
+        onClick={handleFetchGPTCode}
       />
     </SkeletonLayout>
   );
