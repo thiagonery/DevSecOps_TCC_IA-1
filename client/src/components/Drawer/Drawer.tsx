@@ -101,7 +101,7 @@ const DrawerItem: React.FC<IDrawerItem> = ({ src, label, shouldFocus, to }) => {
         >
           <Icon size="24px" src={src} />
         </Box>
-        <Text fontWeight="700" fontSize="12px">
+        <Text fontWeight="700" fontFamily="Titillium Web" fontSize="12px">
           {label}
         </Text>
       </Box>
