@@ -1,5 +1,11 @@
-import HomeFocused from '@assets/icons/home--focused.png';
-import HomeNotFocused from '@assets/icons/home--not-focused.png';
+import Build from '@assets/svgs/build.svg';
+import Code from '@assets/svgs/code.svg';
+import Deploy from '@assets/svgs/deploy.svg';
+import Monitor from '@assets/svgs/monitor.svg';
+import Operate from '@assets/svgs/operate.svg';
+import Plan from '@assets/svgs/plan.svg';
+import Release from '@assets/svgs/release.svg';
+import Test from '@assets/svgs/test.svg';
 import { DRAWER_WIDTH } from '@common/constants';
 import { isMobile } from '@common/utils';
 import { Box, Icon, Link, Text } from '@components';
@@ -27,49 +33,49 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       variant="permanent"
     >
       <DrawerItem
-        src={focus === 'plan' ? HomeFocused : HomeNotFocused}
+        src={Plan}
         shouldFocus={focus === 'plan'}
         label="Plan"
         to="/plan"
       />
       <DrawerItem
-        src={focus === 'code' ? HomeFocused : HomeNotFocused}
+        src={Code}
         shouldFocus={focus === 'code'}
         label="Code"
         to="/code"
       />
       <DrawerItem
-        src={focus === 'build' ? HomeFocused : HomeNotFocused}
+        src={Build}
         shouldFocus={focus === 'build'}
         label="Build"
         to="/build"
       />
       <DrawerItem
-        src={focus === 'test' ? HomeFocused : HomeNotFocused}
+        src={Test}
         shouldFocus={focus === 'test'}
         label="Test"
         to="/test"
       />
       <DrawerItem
-        src={focus === 'deploy' ? HomeFocused : HomeNotFocused}
+        src={Deploy}
         shouldFocus={focus === 'deploy'}
         label="Deploy"
         to="/deploy"
       />
       <DrawerItem
-        src={focus === 'release' ? HomeFocused : HomeNotFocused}
+        src={Release}
         shouldFocus={focus === 'release'}
         label="Release"
         to="/release"
       />
       <DrawerItem
-        src={focus === 'operate' ? HomeFocused : HomeNotFocused}
+        src={Operate}
         shouldFocus={focus === 'operate'}
         label="Operate"
         to="/operate"
       />
       <DrawerItem
-        src={focus === 'monitor' ? HomeFocused : HomeNotFocused}
+        src={Monitor}
         shouldFocus={focus === 'monitor'}
         label="Monitor"
         to="/monitor"
