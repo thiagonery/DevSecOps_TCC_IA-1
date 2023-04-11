@@ -1,14 +1,14 @@
-import Build from '@assets/svgs/build.svg';
-import Code from '@assets/svgs/code.svg';
-import Deploy from '@assets/svgs/deploy.svg';
-import Monitor from '@assets/svgs/monitor.svg';
-import Operate from '@assets/svgs/operate.svg';
-import Plan from '@assets/svgs/plan.svg';
-import Release from '@assets/svgs/release.svg';
-import Test from '@assets/svgs/test.svg';
+import { ReactComponent as Build } from '@assets/svgs/build.svg';
+import { ReactComponent as Code } from '@assets/svgs/code.svg';
+import { ReactComponent as Deploy } from '@assets/svgs/deploy.svg';
+import { ReactComponent as Monitor } from '@assets/svgs/monitor.svg';
+import { ReactComponent as Operate } from '@assets/svgs/operate.svg';
+import { ReactComponent as Plan } from '@assets/svgs/plan.svg';
+import { ReactComponent as Release } from '@assets/svgs/release.svg';
+import { ReactComponent as Test } from '@assets/svgs/test.svg';
 import { DRAWER_WIDTH } from '@common/constants';
 import { isMobile } from '@common/utils';
-import { Box, Icon, Link, Text } from '@components';
+import { Box, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 
 import { IDrawer, IDrawerItem } from './Drawer.types';
@@ -33,49 +33,49 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       variant="permanent"
     >
       <DrawerItem
-        src={Plan}
+        icon={<Plan width="24px" height="24px" />}
         shouldFocus={focus === 'plan'}
         label="Plan"
         to="/plan"
       />
       <DrawerItem
-        src={Code}
+        icon={<Code width="24px" height="24px" />}
         shouldFocus={focus === 'code'}
         label="Code"
         to="/code"
       />
       <DrawerItem
-        src={Build}
+        icon={<Build width="24px" height="24px" />}
         shouldFocus={focus === 'build'}
         label="Build"
         to="/build"
       />
       <DrawerItem
-        src={Test}
+        icon={<Test width="24px" height="24px" />}
         shouldFocus={focus === 'test'}
         label="Test"
         to="/test"
       />
       <DrawerItem
-        src={Deploy}
+        icon={<Deploy width="24px" height="24px" />}
         shouldFocus={focus === 'deploy'}
         label="Deploy"
         to="/deploy"
       />
       <DrawerItem
-        src={Release}
+        icon={<Release width="24px" height="24px" />}
         shouldFocus={focus === 'release'}
         label="Release"
         to="/release"
       />
       <DrawerItem
-        src={Operate}
+        icon={<Operate width="24px" height="24px" />}
         shouldFocus={focus === 'operate'}
         label="Operate"
         to="/operate"
       />
       <DrawerItem
-        src={Monitor}
+        icon={<Monitor width="24px" height="24px" />}
         shouldFocus={focus === 'monitor'}
         label="Monitor"
         to="/monitor"
@@ -84,7 +84,12 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
   );
 };
 
-const DrawerItem: React.FC<IDrawerItem> = ({ src, label, shouldFocus, to }) => {
+const DrawerItem: React.FC<IDrawerItem> = ({
+  icon,
+  label,
+  shouldFocus,
+  to,
+}) => {
   const theme = useTheme();
 
   return (
@@ -99,7 +104,7 @@ const DrawerItem: React.FC<IDrawerItem> = ({ src, label, shouldFocus, to }) => {
             shouldFocus ? theme.palette.tertiary[900] : '#eef7f4'
           }
         >
-          <Icon size="24px" src={src} />
+          {icon}
         </Box>
         <Text fontWeight="700" fontFamily="Titillium Web" fontSize="12px">
           {label}
