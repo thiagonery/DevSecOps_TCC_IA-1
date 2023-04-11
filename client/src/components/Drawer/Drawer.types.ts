@@ -7,6 +7,6 @@ export interface IDrawer {
 export interface IDrawerItem {
   shouldFocus: boolean;
   label: string;
-  src: string;
+  icon: React.ReactElement;
   to: string;
 }
