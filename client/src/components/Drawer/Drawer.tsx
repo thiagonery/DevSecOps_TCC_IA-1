@@ -1,3 +1,4 @@
+import SafeeLogo from '@assets/images/safee-logo.png';
 import { ReactComponent as Build } from '@assets/svgs/build.svg';
 import { ReactComponent as Code } from '@assets/svgs/code.svg';
 import { ReactComponent as Deploy } from '@assets/svgs/deploy.svg';
@@ -32,6 +33,9 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       anchor={isMobile() ? 'bottom' : 'left'}
       variant="permanent"
     >
+      <Box px="6px" mb="44px">
+        <img src={SafeeLogo} />
+      </Box>
       <DrawerItem
         icon={<Plan width="24px" height="24px" />}
         shouldFocus={focus === 'plan'}
