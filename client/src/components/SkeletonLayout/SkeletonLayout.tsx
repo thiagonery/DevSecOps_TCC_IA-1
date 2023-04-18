@@ -1,4 +1,4 @@
-import { useTheme } from '@mui/material';
+import { getPrimaryColor } from '@common/utils';
 
 import { Background } from '../Layout/Background';
 import { Box } from '../Layout/Box';
@@ -14,15 +14,13 @@ export const SkeletonLayout: React.FC<ISkeletonLayout> = ({
   status,
   children,
 }) => {
-  const theme = useTheme();
-
   return (
     <Background drawerFocus={drawerFocus}>
       <Box gap="24px">
-        <Text variant="h1" color={theme.palette.primary.main}>
+        <Text variant="h1" color={getPrimaryColor().main}>
           {title}
         </Text>
-        <Text fontSize="22px" color={theme.palette.primary.main}>
+        <Text fontSize="22px" color={getPrimaryColor().main}>
           {subtitle}
         </Text>
         <>
@@ -32,13 +30,13 @@ export const SkeletonLayout: React.FC<ISkeletonLayout> = ({
               <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
                 {responseIntro}
               </Text>
-              <Text fontSize="22px" color={theme.palette.primary.main}>
+              <Text fontSize="22px" color={getPrimaryColor().main}>
                 {gptResponse}
               </Text>
             </>
           )}
           {status === 'failed' && (
-            <Text fontSize="22px" color={theme.palette.primary.main}>
+            <Text fontSize="22px" color={getPrimaryColor().main}>
               Falha ao carregar resposta. Por favor, tente novamente mais tarde.
             </Text>
           )}
