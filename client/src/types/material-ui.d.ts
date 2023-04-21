@@ -38,6 +38,11 @@ declare module '@mui/material/styles' {
     };
   }
 
+  interface Theme {
+    backgroundColor: Color;
+    drawerColor: Color;
+  }
+
   interface PaletteOptions {
     tertiary: {
       300: Color;
