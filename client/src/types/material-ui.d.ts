@@ -38,6 +38,11 @@ declare module '@mui/material/styles' {
     };
   }
 
+  interface ThemeOptions {
+    backgroundColor: Color;
+    drawerColor: Color;
+  }
+
   interface Theme {
     backgroundColor: Color;
     drawerColor: Color;
