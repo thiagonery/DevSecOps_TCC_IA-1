@@ -14,6 +14,8 @@ export const defaultTheme = createTheme({
       xl: 1536,
     },
   },
+  backgroundColor: '#eef7f4',
+  drawerColor: '#eef7f4',
   typography: {
     body1: {
       color: black[700],
