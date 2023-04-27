@@ -71,13 +71,13 @@ export const carbon: PaletteColor = {
 };
 
 export const black: PaletteColor = {
-  300: '#0a0a0a',
-  main: '#141414',
-  500: '#1f1f1f',
-  600: '#292929',
-  700: '#333333',
-  800: '#000000',
-  900: '#000000',
+  300: '#000000',
+  main: '#181818',
+  500: '#222222',
+  600: '#272727',
+  700: '#313131',
+  800: '#363636',
+  900: '#3B3B3B',
 };
 
 export const burgundy: PaletteColor = {
