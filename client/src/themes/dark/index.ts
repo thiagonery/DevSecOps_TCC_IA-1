@@ -1,9 +1,18 @@
 import { Shadows, createTheme } from '@mui/material';
 import { shadows } from '@mui/system';
 
-import { black, carbon, gray, pink, red, slate, teal } from '../colors';
+import {
+  black,
+  burgundy,
+  carbon,
+  crimson,
+  gray,
+  pink,
+  red,
+  white,
+} from '../colors';
 
-export const defaultTheme = createTheme({
+export const darkTheme = createTheme({
   shadows: Array(shadows.length).fill('none') as Shadows,
   breakpoints: {
     values: {
@@ -14,11 +23,11 @@ export const defaultTheme = createTheme({
       xl: 1536,
     },
   },
-  backgroundColor: '#eef7f4',
-  drawerColor: '#eef7f4',
+  backgroundColor: black.main,
+  drawerColor: black[300],
   typography: {
     body1: {
-      color: black[700],
+      color: white,
       fontFamily: 'Lato',
       fontWeight: '400',
       fontSize: 16,
@@ -34,18 +43,18 @@ export const defaultTheme = createTheme({
       fontFamily: 'Titillium Web',
       fontWeight: '600',
       fontSize: 28,
-      color: black[700],
+      color: white,
     },
   },
   palette: {
     primary: {
-      300: teal[300],
-      main: teal.main,
-      500: teal[500],
-      600: teal[600],
-      700: teal[700],
-      800: teal[800],
-      900: teal[900],
+      300: burgundy[300],
+      main: burgundy.main,
+      500: burgundy[500],
+      600: burgundy[600],
+      700: burgundy[700],
+      800: burgundy[800],
+      900: burgundy[900],
     },
     secondary: {
       300: pink[300],
@@ -57,13 +66,13 @@ export const defaultTheme = createTheme({
       900: pink[900],
     },
     tertiary: {
-      300: slate[300],
-      main: slate.main,
-      500: slate[500],
-      600: slate[600],
-      700: slate[700],
-      800: slate[800],
-      900: slate[900],
+      300: crimson[300],
+      main: crimson.main,
+      500: crimson[500],
+      600: crimson[600],
+      700: crimson[700],
+      800: crimson[800],
+      900: crimson[900],
     },
     error: {
       300: red[300],
