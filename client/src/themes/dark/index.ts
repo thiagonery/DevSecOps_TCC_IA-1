@@ -23,8 +23,8 @@ export const darkTheme = createTheme({
       xl: 1536,
     },
   },
-  backgroundColor: black[700],
-  drawerColor: black[900],
+  backgroundColor: black.main,
+  drawerColor: black[300],
   typography: {
     body1: {
       color: white,
