@@ -21,7 +21,7 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
     <MuiDrawer
       PaperProps={{
         sx: {
-          ...PAPER_STYLES,
+          ...paperStyles(),
           [theme.breakpoints.down('sm')]: {
             gap: 0,
             py: '4px',
@@ -118,10 +118,14 @@ const DrawerItem: React.FC<IDrawerItem> = ({
   );
 };
 
-const PAPER_STYLES = {
-  width: DRAWER_WIDTH,
-  pt: '44px',
-  border: 'none',
-  gap: '8px',
-  backgroundColor: '#eef7f4',
+const paperStyles = () => {
+  const theme = useTheme();
+
+  return {
+    width: DRAWER_WIDTH,
+    pt: '44px',
+    border: 'none',
+    gap: '8px',
+    backgroundColor: theme.drawerColor,
+  };
 };
