@@ -80,14 +80,14 @@ export const black: PaletteColor = {
   900: '#3B3B3B',
 };
 
-export const burgundy: PaletteColor = {
-  300: '#8C032C',
-  main: '#93032E',
-  500: '#B40439',
-  600: '#C8043F',
-  700: '#DC0445',
-  800: '#F0054B',
-  900: '#FA0F56',
+export const purple: PaletteColor = {
+  300: '#AC81D9',
+  main: '#9966CC',
+  500: '#8C5EA8',
+  600: '#7E519B',
+  700: '#704490',
+  800: '#623780',
+  900: '#472D66',
 };
 
 export const crimson: PaletteColor = {
