@@ -1,11 +1,11 @@
 import { ThemeProvider } from '@mui/material';
-import { darkTheme } from '@themes/dark';
 
 import './App.css';
 import { Routes } from './routes';
+import { defaultTheme } from '@themes/default';
 
 export const App = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeProvider theme={defaultTheme}>
     <Routes />
   </ThemeProvider>
 );
