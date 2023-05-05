@@ -8,7 +8,7 @@ import { ReactComponent as Plan } from '@assets/svgs/plan.svg';
 import { ReactComponent as Release } from '@assets/svgs/release.svg';
 import { ReactComponent as Test } from '@assets/svgs/test.svg';
 import { DRAWER_WIDTH } from '@common/constants';
-import { isMobile } from '@common/utils';
+import { getTertiaryColor, isMobile } from '@common/utils';
 import { Box, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 
@@ -94,8 +94,6 @@ const DrawerItem: React.FC<IDrawerItem> = ({
   shouldFocus,
   to,
 }) => {
-  const theme = useTheme();
-
   return (
     <Link to={to}>
       <Box gap="4px" style={{ alignItems: 'center' }}>
@@ -104,9 +102,7 @@ const DrawerItem: React.FC<IDrawerItem> = ({
           borderRadius="100px"
           px="16px"
           py="4px"
-          backgroundColor={
-            shouldFocus ? theme.palette.tertiary[900] : '#eef7f4'
-          }
+          backgroundColor={shouldFocus ? getTertiaryColor()[900] : '#eef7f4'}
         >
           {icon}
         </Box>
