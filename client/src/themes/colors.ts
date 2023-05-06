@@ -91,13 +91,13 @@ export const purple: PaletteColor = {
 };
 
 export const orange: PaletteColor = {
-  300: '#FFBE99',
+  300: '#D88C00',
   main: '#FFA500',
-  500: '#FF9100',
-  600: '#FF8400',
-  700: '#FF7700',
-  800: '#FF6900',
-  900: '#FF5C00',
+  500: '#FFB733',
+  600: '#FFBF4D',
+  700: '#FFC866',
+  800: '#FFD180',
+  900: '#FFD999',
 };
 
 export const lavender: PaletteColor = {
