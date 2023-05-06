@@ -3,11 +3,11 @@ import { shadows } from '@mui/system';
 
 import {
   black,
-  burgundy,
   carbon,
   crimson,
   gray,
   pink,
+  purple,
   red,
   white,
 } from '../colors';
@@ -48,13 +48,13 @@ export const darkTheme = createTheme({
   },
   palette: {
     primary: {
-      300: burgundy[300],
-      main: burgundy.main,
-      500: burgundy[500],
-      600: burgundy[600],
-      700: burgundy[700],
-      800: burgundy[800],
-      900: burgundy[900],
+      300: purple[300],
+      main: purple.main,
+      500: purple[500],
+      600: purple[600],
+      700: purple[700],
+      800: purple[800],
+      900: purple[900],
     },
     secondary: {
       300: pink[300],
