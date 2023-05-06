@@ -1,4 +1,4 @@
-import SafeeLogo from '@assets/images/safee-logo.png';
+import SafeeLogo from '@assets/images/safee-logo-min.png';
 import { ReactComponent as Build } from '@assets/svgs/build.svg';
 import { ReactComponent as Code } from '@assets/svgs/code.svg';
 import { ReactComponent as Deploy } from '@assets/svgs/deploy.svg';
@@ -8,9 +8,10 @@ import { ReactComponent as Plan } from '@assets/svgs/plan.svg';
 import { ReactComponent as Release } from '@assets/svgs/release.svg';
 import { ReactComponent as Test } from '@assets/svgs/test.svg';
 import { DRAWER_WIDTH } from '@common/constants';
-import { getTertiaryColor, isMobile } from '@common/utils';
+import { getSecondaryColor, isMobile } from '@common/utils';
 import { Box, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
+import { black } from '@themes/colors';
 
 import { IDrawer, IDrawerItem } from './Drawer.types';
 
@@ -33,8 +34,8 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       anchor={isMobile() ? 'bottom' : 'left'}
       variant="permanent"
     >
-      <Box px="6px" mb="44px">
-        <img src={SafeeLogo} />
+      <Box style={{ alignItems: 'center' }} px="6px" mb="44px">
+        <img src={SafeeLogo} width="42px" height="42px" />
       </Box>
       <DrawerItem
         icon={<Plan width="24px" height="24px" />}
@@ -102,11 +103,15 @@ const DrawerItem: React.FC<IDrawerItem> = ({
           borderRadius="100px"
           px="16px"
           py="4px"
-          backgroundColor={shouldFocus ? getTertiaryColor()[900] : '#eef7f4'}
         >
           {icon}
         </Box>
-        <Text fontWeight="700" fontFamily="Titillium Web" fontSize="12px">
+        <Text
+          color={shouldFocus ? getSecondaryColor()[600] : black.main}
+          fontWeight="700"
+          fontFamily="Titillium Web"
+          fontSize="12px"
+        >
           {label}
         </Text>
       </Box>
