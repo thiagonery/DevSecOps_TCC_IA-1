@@ -25,6 +25,29 @@ export const darkTheme = createTheme({
   },
   backgroundColor: black.main,
   drawerColor: black[300],
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: orange[500],
+          },
+          '&:hover .MuiOutlinedInput-notchedOutline': {
+            borderColor: orange[300],
+          },
+          label: {
+            color: orange.main,
+            '&.Mui-focused': {
+              color: orange.main,
+            },
+          },
+          input: {
+            color: orange.main,
+          },
+        },
+      },
+    },
+  },
   typography: {
     body1: {
       color: white,
