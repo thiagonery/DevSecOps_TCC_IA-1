@@ -30,19 +30,19 @@ export const darkTheme = createTheme({
       styleOverrides: {
         root: {
           '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: orange[500],
+            borderColor: purple[500],
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: orange[300],
+            borderColor: purple[300],
           },
           label: {
-            color: orange.main,
+            color: purple.main,
             '&.Mui-focused': {
-              color: orange.main,
+              color: purple.main,
             },
           },
           input: {
-            color: orange.main,
+            color: purple.main,
           },
         },
       },
