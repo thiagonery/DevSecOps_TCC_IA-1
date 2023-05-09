@@ -47,6 +47,17 @@ export const darkTheme = createTheme({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          backgroundColor: orange.main,
+          '&:hover': { backgroundColor: orange[600] },
+          ':disabled': {
+            backgroundColor: gray[500],
+          },
+        },
+      },
+    },
   },
   typography: {
     body1: {
