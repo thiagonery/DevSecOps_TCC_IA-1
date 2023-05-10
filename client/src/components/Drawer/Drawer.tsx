@@ -1,4 +1,3 @@
-import SafeeLogo from '@assets/images/safee-logo-min.png';
 import { ReactComponent as Build } from '@assets/svgs/build.svg';
 import { ReactComponent as Code } from '@assets/svgs/code.svg';
 import { ReactComponent as Deploy } from '@assets/svgs/deploy.svg';
@@ -11,7 +10,6 @@ import { DRAWER_WIDTH } from '@common/constants';
 import { getPrimaryColor, getSecondaryColor, isMobile } from '@common/utils';
 import { Box, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
-import { black } from '@themes/colors';
 
 import { IDrawer, IDrawerItem } from './Drawer.types';
 
@@ -34,9 +32,6 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
       anchor={isMobile() ? 'bottom' : 'left'}
       variant="permanent"
     >
-      <Box style={{ alignItems: 'center' }} px="6px" mb="44px">
-        <img src={SafeeLogo} width="42px" height="42px" />
-      </Box>
       <DrawerItem
         SVG={Plan}
         shouldFocus={focus === 'plan'}
