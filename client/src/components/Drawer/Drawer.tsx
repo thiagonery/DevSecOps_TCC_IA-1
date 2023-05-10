@@ -8,7 +8,7 @@ import { ReactComponent as Plan } from '@assets/svgs/plan.svg';
 import { ReactComponent as Release } from '@assets/svgs/release.svg';
 import { ReactComponent as Test } from '@assets/svgs/test.svg';
 import { DRAWER_WIDTH } from '@common/constants';
-import { getSecondaryColor, isMobile } from '@common/utils';
+import { getPrimaryColor, getSecondaryColor, isMobile } from '@common/utils';
 import { Box, Link, Text } from '@components';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { black } from '@themes/colors';
@@ -38,49 +38,49 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
         <img src={SafeeLogo} width="42px" height="42px" />
       </Box>
       <DrawerItem
-        icon={<Plan width="24px" height="24px" />}
+        SVG={Plan}
         shouldFocus={focus === 'plan'}
         label="Plan"
         to="/plan"
       />
       <DrawerItem
-        icon={<Code width="24px" height="24px" />}
+        SVG={Code}
         shouldFocus={focus === 'code'}
         label="Code"
         to="/code"
       />
       <DrawerItem
-        icon={<Build width="24px" height="24px" />}
+        SVG={Build}
         shouldFocus={focus === 'build'}
         label="Build"
         to="/build"
       />
       <DrawerItem
-        icon={<Test width="24px" height="24px" />}
+        SVG={Test}
         shouldFocus={focus === 'test'}
         label="Test"
         to="/test"
       />
       <DrawerItem
-        icon={<Deploy width="24px" height="24px" />}
+        SVG={Deploy}
         shouldFocus={focus === 'deploy'}
         label="Deploy"
         to="/deploy"
       />
       <DrawerItem
-        icon={<Release width="24px" height="24px" />}
+        SVG={Release}
         shouldFocus={focus === 'release'}
         label="Release"
         to="/release"
       />
       <DrawerItem
-        icon={<Operate width="24px" height="24px" />}
+        SVG={Operate}
         shouldFocus={focus === 'operate'}
         label="Operate"
         to="/operate"
       />
       <DrawerItem
-        icon={<Monitor width="24px" height="24px" />}
+        SVG={Monitor}
         shouldFocus={focus === 'monitor'}
         label="Monitor"
         to="/monitor"
@@ -89,12 +89,7 @@ export const Drawer: React.FC<IDrawer> = ({ focus }) => {
   );
 };
 
-const DrawerItem: React.FC<IDrawerItem> = ({
-  icon,
-  label,
-  shouldFocus,
-  to,
-}) => {
+const DrawerItem: React.FC<IDrawerItem> = ({ SVG, label, shouldFocus, to }) => {
   return (
     <Link to={to}>
       <Box gap="4px" style={{ alignItems: 'center' }}>
@@ -104,7 +99,13 @@ const DrawerItem: React.FC<IDrawerItem> = ({
           px="16px"
           py="4px"
         >
-          {icon}
+          <SVG
+            height="24px"
+            width="24px"
+            color={
+              shouldFocus ? getSecondaryColor().main : getPrimaryColor().main
+            }
+          />
         </Box>
         <Text
           color={shouldFocus ? getSecondaryColor()[600] : black.main}
