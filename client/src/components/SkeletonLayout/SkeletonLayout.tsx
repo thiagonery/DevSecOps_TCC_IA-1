@@ -1,4 +1,4 @@
-import { getPrimaryColor } from '@common/utils';
+import { getPrimaryColor, getSecondaryColor } from '@common/utils';
 
 import { Background } from '../Layout/Background';
 import { Box } from '../Layout/Box';
@@ -27,7 +27,12 @@ export const SkeletonLayout: React.FC<ISkeletonLayout> = ({
           {children}
           {gptResponse && (
             <>
-              <Text fontSize="18" fontWeight="600" fontFamily="Titillium Web">
+              <Text
+                color={getSecondaryColor().main}
+                fontSize="18"
+                fontWeight="600"
+                fontFamily="Titillium Web"
+              >
                 {responseIntro}
               </Text>
               <Text fontSize="22px" color={getPrimaryColor().main}>
