@@ -108,7 +108,9 @@ const DrawerItem: React.FC<IDrawerItem> = ({ SVG, label, shouldFocus, to }) => {
           />
         </Box>
         <Text
-          color={shouldFocus ? getSecondaryColor()[600] : black.main}
+          color={
+            shouldFocus ? getSecondaryColor()[600] : getPrimaryColor().main
+          }
           fontWeight="700"
           fontFamily="Titillium Web"
           fontSize="12px"
