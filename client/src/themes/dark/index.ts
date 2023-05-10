@@ -33,7 +33,7 @@ export const darkTheme = createTheme({
             borderColor: purple[500],
           },
           '&:hover .MuiOutlinedInput-notchedOutline': {
-            borderColor: purple[300],
+            borderColor: purple[900],
           },
           label: {
             color: purple.main,
@@ -53,7 +53,7 @@ export const darkTheme = createTheme({
           backgroundColor: orange.main,
           '&:hover': { backgroundColor: orange[600] },
           ':disabled': {
-            backgroundColor: gray[500],
+            backgroundColor: gray[300],
           },
         },
       },
