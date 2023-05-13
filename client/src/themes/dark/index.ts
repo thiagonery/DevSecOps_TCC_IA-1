@@ -23,7 +23,7 @@ export const darkTheme = createTheme({
       xl: 1536,
     },
   },
-  backgroundColor: '#110916',
+  backgroundColor: '#1b1221',
   drawerColor: '#0e0712',
   components: {
     MuiTextField: {
