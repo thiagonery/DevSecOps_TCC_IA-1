@@ -29,7 +29,7 @@ export const OperateScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="operate"
       title="Etapa - OPERATE"
-      subtitle="Especifique as tecnologias na etapa de operação da aplicação."
+      subtitle="Operar sua aplicação com segurança e confiabilidade"
       responseIntro={`Implantação de ferramentas de monitoramento e analise de logs, utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
