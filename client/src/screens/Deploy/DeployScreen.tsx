@@ -29,7 +29,7 @@ export const DeployScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="deploy"
       title="Etapa - DEPLOY"
-      subtitle="Ferramentas de implantação com suporte para suas tecnologias."
+      subtitle="Implantar sua aplicação com segurança e confiança"
       responseIntro={`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
       gptResponse={gptResponse}
       status={status}
