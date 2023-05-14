@@ -25,7 +25,7 @@ export const BuildScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="build"
       title="Etapa - BUILD"
-      subtitle="Especifique a tecnologia utilizada na etapa de build."
+      subtitle="Construa uma pipeline segura de integração contínua e entrega contínua"
       responseIntro={`Ferramentas de análise de build para "${techValue}" com foco na segurança da aplicação.`}
       gptResponse={gptResponse}
       status={status}
