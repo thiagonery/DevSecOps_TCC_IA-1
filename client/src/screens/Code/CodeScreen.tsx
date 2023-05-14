@@ -32,8 +32,7 @@ export const CodeScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="code"
       title="Etapa - CODE"
-      subtitle="Especifique a funcionalidade e suas tecnologias na etapa de
-      codificação."
+      subtitle="Escreva código seguro e resiliente"
       responseIntro={`Revisão de código para a funcionalidade "${featureValue}", utilizando ${techValue} e ${dataBaseValue}, com foco em segurança`}
       gptResponse={gptResponse}
       status={status}
