@@ -29,7 +29,7 @@ export const ReleaseScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="release"
       title="Etapa - RELEASE"
-      subtitle="Especifique as tecnologias na etapa de liberação da aplicação."
+      subtitle="Libere seu software com segurança e eficiência"
       responseIntro={`Planejamento de um pentest para uma aplicação utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
