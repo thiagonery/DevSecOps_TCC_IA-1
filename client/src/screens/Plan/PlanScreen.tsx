@@ -28,8 +28,7 @@ export const PlanScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="plan"
       title="Etapa - PLAN"
-      subtitle="Comece o planejamento do seu projeto especificando a tecnologia e o
-         banco de dados utilizado."
+      subtitle="Comece o planejamento do seu projeto com segurança em mente"
       responseIntro={`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
