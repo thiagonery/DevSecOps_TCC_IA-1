@@ -29,7 +29,7 @@ export const MonitorScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="monitor"
       title="Etapa - MONITOR"
-      subtitle="Especifique as tecnologias na etapa de monitoramento da aplicação."
+      subtitle="Monitorar sua aplicação em tempo real para identificar ameaças e vulnerabilidades"
       responseIntro={`Implantação de SIEM, utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
