@@ -29,8 +29,7 @@ export const TestScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="test"
       title="Etapa - TEST"
-      subtitle="Melhores práticas de teste para as tecnologias utilizadas na sua
-      aplicação."
+      subtitle="Teste sua aplicação de forma segura e eficaz"
       responseIntro={`DAST em uma aplicação "${techValue}" utilizando o banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
