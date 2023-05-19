@@ -1,5 +1,6 @@
 import { instance } from '@services/axios';
 
+
 export const fetchGPTPlan = (technology: string, dbms: string) =>
   instance({
     url: `/api/v1/service/plan?technology=${technology}&sgbd=${dbms}`,
@@ -8,7 +9,7 @@ export const fetchGPTPlan = (technology: string, dbms: string) =>
 export const fetchGPTCode = (
   technology: string,
   dbms: string,
-  feature: string
+  feature: string // api/v1/service/test?technology=python&sgbd=postgresql
 ) =>
   instance({
     url: `/api/v1/service/code?functionality=${feature}&technology=${technology}&sgbd=${dbms}`,
