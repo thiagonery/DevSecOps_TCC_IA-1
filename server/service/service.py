@@ -23,12 +23,11 @@ def plan():
 def code():
     try:
         query_params = request.args
-
-        functionality = query_params["functionality"]
+        
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
 
-        prompt = f"dicas para revisão de código de {functionality} em {technology} com {sgbd} pensando em segurança"
+        prompt = f"dicas para revisão de código em {technology} com {sgbd} pensando em segurança de aplicação, considerando sugestões de ferramentas e boas praticas"
 
         response = return_json(prompt)
       
@@ -40,9 +39,11 @@ def code():
 def build():
      try:
         query_params = request.args
+
         technology = query_params["technology"]
+        sgbd = query_params["sgbd"]
         
-        prompt = f"ferramentas de analise de build para {technology} pensando em segurança de aplicação"
+        prompt = f"me de sugestões de ferramentas e processos de analise de build para {technology} com {sgbd} pensando em segurança de aplicação e como implementa-los"
         response = return_json(prompt)
       
         return jsonify(response)
