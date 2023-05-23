@@ -14,7 +14,7 @@ def plan():
 
         prompt = f"quais são as possíveis vulnerabilidades para {technology}, com o banco de dados {sgbd}"
         response = return_json(prompt)
-      
+              
         return jsonify(response)
     except Exception as e:
         return {"content": e.message}
