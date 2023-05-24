@@ -4,7 +4,7 @@ type HEX = `#${string}`;
 
 export type Color = RGB | RGBA | HEX;
 
-export type DrawerScreens =
+export type DevOpsSteps =
   | 'plan'
   | 'code'
   | 'build'

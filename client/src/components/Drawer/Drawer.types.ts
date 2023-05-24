@@ -1,7 +1,7 @@
-import { DrawerScreens } from '@common/types';
+import { DevOpsSteps } from '@common/types';
 
 export interface IDrawer {
-  focus?: DrawerScreens;
+  focus?: DevOpsSteps;
 }
 
 export interface IDrawerItem {
