@@ -1,5 +1,5 @@
+import { DevOpsSteps } from '@common/types';
 import { instance } from '@services/axios';
-
 
 export const fetchGPTPlan = (technology: string, dbms: string) =>
   instance({
@@ -9,7 +9,7 @@ export const fetchGPTPlan = (technology: string, dbms: string) =>
 export const fetchGPTCode = (
   technology: string,
   dbms: string,
-  feature: string // api/v1/service/test?technology=python&sgbd=postgresql
+  feature: string
 ) =>
   instance({
     url: `/api/v1/service/code?functionality=${feature}&technology=${technology}&sgbd=${dbms}`,
@@ -41,4 +41,13 @@ export const fetchGPTOperate = (technology: string, dbms: string) =>
 export const fetchGPTMonitor = (technology: string, dbms: string) =>
   instance({
     url: `/api/v1/service/monitor?technology=${technology}&sgbd=${dbms}`,
+  });
+
+export const fetchDevOpsStep = (
+  step: DevOpsSteps,
+  technology: string,
+  dbms: string
+) =>
+  instance({
+    url: `/api/v1/service/${step}?technology=${technology}&sgbd=${dbms}`,
   });
