@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchDevOpsStep } from '@services/gpt';
+import { fetchGPTRelease } from '@services/gpt';
 
-export const PlanScreen: React.FC = () => {
+export const ReleaseScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [gptResponse, setGptResponse] = useState('');
@@ -14,22 +14,23 @@ export const PlanScreen: React.FC = () => {
 
   const inputs = [techValue, dataBaseValue];
 
-  const handlefetchGPTPlan = () => {
+  const handleFetchGPTRelease = () => {
     setStatus('pending');
 
-    fetchDevOpsStep('plan', techValue, dataBaseValue)
+    fetchGPTRelease(techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
       .catch(() => setStatus('failed'));
   };
+
   return (
     <SkeletonLayout
-      drawerFocus="plan"
-      title="Etapa - PLAN"
-      subtitle="Comece o planejamento do seu projeto com segurança em mente"
-      responseIntro={`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
+      drawerFocus="release"
+      title="Etapa - RELEASE"
+      subtitle="Libere seu software com segurança e eficiência"
+      responseIntro={`Planejamento de um pentest para uma aplicação utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
     >
@@ -54,7 +55,7 @@ export const PlanScreen: React.FC = () => {
           status === 'pending' ||
           inputs.some((input) => input === '')
         }
-        onClick={handlefetchGPTPlan}
+        onClick={handleFetchGPTRelease}
       />
     </SkeletonLayout>
   );

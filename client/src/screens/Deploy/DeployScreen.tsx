@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchDevOpsStep } from '@services/gpt';
+import { fetchGPTDeploy } from '@services/gpt';
 
-export const PlanScreen: React.FC = () => {
+export const DeployScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [gptResponse, setGptResponse] = useState('');
@@ -14,22 +14,23 @@ export const PlanScreen: React.FC = () => {
 
   const inputs = [techValue, dataBaseValue];
 
-  const handlefetchGPTPlan = () => {
+  const handleFetchGPTDeploy = () => {
     setStatus('pending');
 
-    fetchDevOpsStep('plan', techValue, dataBaseValue)
+    fetchGPTDeploy(techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
       .catch(() => setStatus('failed'));
   };
+
   return (
     <SkeletonLayout
-      drawerFocus="plan"
-      title="Etapa - PLAN"
-      subtitle="Comece o planejamento do seu projeto com segurança em mente"
-      responseIntro={`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
+      drawerFocus="deploy"
+      title="Etapa - DEPLOY"
+      subtitle="Implantar sua aplicação com segurança e confiança"
+      responseIntro={`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
       gptResponse={gptResponse}
       status={status}
     >
@@ -54,7 +55,7 @@ export const PlanScreen: React.FC = () => {
           status === 'pending' ||
           inputs.some((input) => input === '')
         }
-        onClick={handlefetchGPTPlan}
+        onClick={handleFetchGPTDeploy}
       />
     </SkeletonLayout>
   );

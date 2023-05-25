@@ -71,13 +71,43 @@ export const carbon: PaletteColor = {
 };
 
 export const black: PaletteColor = {
-  300: '#0a0a0a',
-  main: '#141414',
-  500: '#1f1f1f',
-  600: '#292929',
-  700: '#333333',
-  800: '#000000',
-  900: '#000000',
+  300: '#000000',
+  main: '#181818',
+  500: '#222222',
+  600: '#272727',
+  700: '#313131',
+  800: '#363636',
+  900: '#3B3B3B',
+};
+
+export const purple: PaletteColor = {
+  300: '#8C5EA7',
+  main: '#9966CC',
+  500: '#AB7ED6',
+  600: '#B68AD9',
+  700: '#C396DC',
+  800: '#CEA2DF',
+  900: '#DBAEE2',
+};
+
+export const orange: PaletteColor = {
+  300: '#D88C00',
+  main: '#FFA500',
+  500: '#FFB733',
+  600: '#FFBF4D',
+  700: '#FFC866',
+  800: '#FFD180',
+  900: '#FFD999',
+};
+
+export const lavender: PaletteColor = {
+  300: '#B46FBF',
+  main: '#C783CE',
+  500: '#D19BD9',
+  600: '#D8A5DC',
+  700: '#DFAFDF',
+  800: '#E6B9E2',
+  900: '#EDC3E5',
 };
 
 export const white: Color = '#fff';

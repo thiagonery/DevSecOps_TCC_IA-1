@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchDevOpsStep } from '@services/gpt';
+import { fetchGPTTest } from '@services/gpt';
 
-export const PlanScreen: React.FC = () => {
+export const TestScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
   const [dataBaseValue, setDataBaseValue] = useState('');
   const [gptResponse, setGptResponse] = useState('');
@@ -14,22 +14,23 @@ export const PlanScreen: React.FC = () => {
 
   const inputs = [techValue, dataBaseValue];
 
-  const handlefetchGPTPlan = () => {
+  const handleFetchGPTTest = () => {
     setStatus('pending');
 
-    fetchDevOpsStep('plan', techValue, dataBaseValue)
+    fetchGPTTest(techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
       .catch(() => setStatus('failed'));
   };
+
   return (
     <SkeletonLayout
-      drawerFocus="plan"
-      title="Etapa - PLAN"
-      subtitle="Comece o planejamento do seu projeto com segurança em mente"
-      responseIntro={`Possíveis vulnerabilidades para "${techValue}", com banco de dados "${dataBaseValue}":`}
+      drawerFocus="test"
+      title="Etapa - TEST"
+      subtitle="Teste sua aplicação de forma segura e eficaz"
+      responseIntro={`DAST em uma aplicação "${techValue}" utilizando o banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
     >
@@ -54,7 +55,7 @@ export const PlanScreen: React.FC = () => {
           status === 'pending' ||
           inputs.some((input) => input === '')
         }
-        onClick={handlefetchGPTPlan}
+        onClick={handleFetchGPTTest}
       />
     </SkeletonLayout>
   );

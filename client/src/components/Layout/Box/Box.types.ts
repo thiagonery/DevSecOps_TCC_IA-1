@@ -3,7 +3,7 @@ import { SxProps } from '@mui/material';
 
 export interface IBox {
   borderColor?: Color;
-  backgroundColor?: Color;
+  backgroundColor?: Color | string;
   width?: string | number;
   height?: string | number;
   flexDirection?: 'column' | 'column-reverse' | 'row' | 'row-reverse';

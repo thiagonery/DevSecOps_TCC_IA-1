@@ -1,12 +1,12 @@
-import { DrawerScreens } from '@common/types';
+import { DevOpsSteps } from '@common/types';
 
 export interface IDrawer {
-  focus?: DrawerScreens;
+  focus?: DevOpsSteps;
 }
 
 export interface IDrawerItem {
   shouldFocus: boolean;
   label: string;
-  src: string;
+  SVG: React.FC<React.SVGProps<SVGSVGElement>>;
   to: string;
 }

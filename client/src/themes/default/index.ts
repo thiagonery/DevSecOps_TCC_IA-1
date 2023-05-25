@@ -1,7 +1,7 @@
 import { Shadows, createTheme } from '@mui/material';
 import { shadows } from '@mui/system';
 
-import { black, carbon, gray, pink, red, slate, teal } from './colors';
+import { black, carbon, gray, pink, red, slate, teal } from '../colors';
 
 export const defaultTheme = createTheme({
   shadows: Array(shadows.length).fill('none') as Shadows,
@@ -14,6 +14,8 @@ export const defaultTheme = createTheme({
       xl: 1536,
     },
   },
+  backgroundColor: '#eef7f4',
+  drawerColor: '#eef7f4',
   typography: {
     body1: {
       color: black[700],

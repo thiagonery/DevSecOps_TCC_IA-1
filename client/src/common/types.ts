@@ -4,4 +4,14 @@ type HEX = `#${string}`;
 
 export type Color = RGB | RGBA | HEX;
 
-export type DrawerScreens = 'plan' | 'code' | 'build';
+export type DevOpsSteps =
+  | 'plan'
+  | 'code'
+  | 'build'
+  | 'test'
+  | 'deploy'
+  | 'release'
+  | 'operate'
+  | 'monitor';
+
+export type Status = 'idle' | 'pending' | 'succeeded' | 'failed';

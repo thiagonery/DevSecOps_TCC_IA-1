@@ -1,16 +1,50 @@
 import React from 'react';
+import { useState } from 'react';
 
-import { Background, Text } from '@components';
-import { useTheme } from '@mui/material';
+import { Status } from '@common/types';
+import { SkeletonLayout } from '@components';
+import { Box, Button, Input } from '@components';
+import { fetchGPTBuild } from '@services/gpt';
 
 export const BuildScreen: React.FC = () => {
-  const theme = useTheme();
+  const [techValue, setTechValue] = useState('');
+  const [gptResponse, setGptResponse] = useState('');
+  const [status, setStatus] = useState<Status>('idle');
 
+  const handleFetchGPTBuild = () => {
+    setStatus('pending');
+
+    fetchGPTBuild(techValue)
+      .then((res) => {
+        setStatus('succeeded');
+        setGptResponse(res.data.content);
+      })
+      .catch(() => setStatus('failed'));
+  };
   return (
-    <Background drawerFocus="build">
-      <Text variant="h1" color={theme.palette.primary.main}>
-        BUILD
-      </Text>
-    </Background>
+    <SkeletonLayout
+      drawerFocus="build"
+      title="Etapa - BUILD"
+      subtitle="Construa uma pipeline segura de integração contínua e entrega contínua"
+      responseIntro={`Ferramentas de análise de build para "${techValue}" com foco na segurança da aplicação.`}
+      gptResponse={gptResponse}
+      status={status}
+    >
+      <Box flexDirection="row" gap="18px">
+        <Input
+          value={techValue}
+          onChange={(e) => setTechValue(e.target.value)}
+          fullWidth
+          label="Tecnologia"
+        />
+      </Box>
+      <Button
+        text={status === 'pending' ? 'Carregando...' : 'Confirmar'}
+        disabled={
+          status === 'succeeded' || status === 'pending' || techValue === ''
+        }
+        onClick={handleFetchGPTBuild}
+      />
+    </SkeletonLayout>
   );
 };
