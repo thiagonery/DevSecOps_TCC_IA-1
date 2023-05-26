@@ -29,7 +29,7 @@ export const DeployScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="deploy"
       title="Etapa - DEPLOY"
-      subtitle="Implantar sua aplicação com segurança e confiança"
+      subtitle="Nesta parte do ciclo de DevSecOps iremos abordar sugestões para realizar o deploy da sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
       responseIntro={`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
       gptResponse={gptResponse}
       status={status}
@@ -39,7 +39,7 @@ export const DeployScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}

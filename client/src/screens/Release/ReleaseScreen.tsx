@@ -29,7 +29,7 @@ export const ReleaseScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="release"
       title="Etapa - RELEASE"
-      subtitle="Libere seu software com segurança e eficiência"
+      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar formas seguras de realizar o deploy da sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
       responseIntro={`Planejamento de um pentest para uma aplicação utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
@@ -39,7 +39,7 @@ export const ReleaseScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}

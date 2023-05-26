@@ -31,7 +31,7 @@ export const CodeScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="code"
       title="Etapa - CODE"
-      subtitle="Escreva código seguro e resiliente"
+      subtitle="Nesta etapa do ciclo de DevSecOps abordaremos dicas para a revisão de código pensando em segurança da sua aplicação, baseado na linguagem de programação e banco de dados que você está utilizando no seu projeto."
       responseIntro={`Revisão de código utilizando ${techValue} e ${dataBaseValue}, com foco em segurança`}
       gptResponse={gptResponse}
       status={status}
@@ -41,7 +41,7 @@ export const CodeScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}
