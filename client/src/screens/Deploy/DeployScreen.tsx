@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTDeploy } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const DeployScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const DeployScreen: React.FC = () => {
   const handleFetchGPTDeploy = () => {
     setStatus('pending');
 
-    fetchGPTDeploy(techValue, dataBaseValue)
+    fetchDevOpsStep('deploy', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
