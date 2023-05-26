@@ -35,7 +35,11 @@ export const SkeletonLayout: React.FC<ISkeletonLayout> = ({
               >
                 {responseIntro}
               </Text>
-              <Text fontSize="22px" color={getPrimaryColor().main}>
+              <Text
+                style={{ whiteSpace: 'pre-line' }}
+                fontSize="22px"
+                color={getPrimaryColor().main}
+              >
                 {gptResponse}
               </Text>
             </>

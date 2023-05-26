@@ -1,7 +1,7 @@
-import { DrawerScreens, Status } from '@common/types';
+import { DevOpsSteps, Status } from '@common/types';
 
 export interface ISkeletonLayout {
-  drawerFocus: DrawerScreens;
+  drawerFocus: DevOpsSteps;
   title: string;
   subtitle: string;
   responseIntro: string;

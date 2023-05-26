@@ -2,8 +2,12 @@ import openai
 import os
 from dotenv import load_dotenv
 
-def return_json(prompt):
+def format_response(response):
+    response = response.strip().replace('\n', ' ')
+    response = response.replace('?','').strip()
+    return response
 
+def return_json(prompt):
     # carregando o .env
     load_dotenv()
     key = os.environ['APP_KEY']
@@ -14,17 +18,17 @@ def return_json(prompt):
     
     # essa parte faz a configuração da inteligência aritificial
     completion = openai.Completion.create(
-    engine = model_engine,
-    prompt = prompt,
-    max_tokens = 1024,
-    temperature = 0.5
+        engine = model_engine,
+        prompt = prompt,
+        max_tokens = 1024,
+        temperature = 0.5
     )
     
     # assim eu devolvo a resposta
     response = completion.choices[0].text
-    responseFormat = response.replace('\n', '').replace('?','').replace('\\', '').replace(':', '')
-
+    response = format_response(response)
+    
     # criando json
-    json = {"content": responseFormat}
+    json = {"content": response}
 
     return json

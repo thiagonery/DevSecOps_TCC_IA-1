@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTOperate } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const OperateScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const OperateScreen: React.FC = () => {
   const handleFetchGPTOperate = () => {
     setStatus('pending');
 
-    fetchGPTOperate(techValue, dataBaseValue)
+    fetchDevOpsStep('operate', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
@@ -29,7 +29,7 @@ export const OperateScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="operate"
       title="Etapa - OPERATE"
-      subtitle="Operar sua aplicação com segurança e confiabilidade"
+      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar formas seguras de operar o sua aplicação utilizando linguagem de programação e banco de dados do seu projeto."
       responseIntro={`Implantação de ferramentas de monitoramento e analise de logs, utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
@@ -39,7 +39,7 @@ export const OperateScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTTest } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const TestScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const TestScreen: React.FC = () => {
   const handleFetchGPTTest = () => {
     setStatus('pending');
 
-    fetchGPTTest(techValue, dataBaseValue)
+    fetchDevOpsStep('test', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
@@ -29,7 +29,7 @@ export const TestScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="test"
       title="Etapa - TEST"
-      subtitle="Teste sua aplicação de forma segura e eficaz"
+      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar sugestões para realizar testes na sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
       responseIntro={`DAST em uma aplicação "${techValue}" utilizando o banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
@@ -39,7 +39,7 @@ export const TestScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}

@@ -15,8 +15,10 @@ export const fetchGPTCode = (
     url: `/api/v1/service/code?functionality=${feature}&technology=${technology}&sgbd=${dbms}`,
   });
 
-export const fetchGPTBuild = (technology: string) =>
-  instance({ url: `/api/v1/service/build?technology=${technology}` });
+export const fetchGPTBuild = (technology: string, dbms: string) =>
+  instance({
+    url: `/api/v1/service/build?technology=${technology}&sgbd=${dbms}`,
+  });
 
 export const fetchGPTTest = (technology: string, dbms: string) =>
   instance({
