@@ -15,19 +15,20 @@ export const BuildScreen: React.FC = () => {
   const handleFetchGPTBuild = () => {
     setStatus('pending');
 
-    fetchDevOpsStep('build', techValue, dataBaseValue)
+    fetchGPTBuild(techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
       })
       .catch(() => setStatus('failed'));
   };
+
   return (
     <SkeletonLayout
       drawerFocus="build"
       title="Etapa - BUILD"
-      subtitle="Construa uma pipeline segura de integração contínua e entrega contínua"
-      responseIntro={`Ferramentas de análise de build para "${techValue}" e "${dataBaseValue}" com foco na segurança da aplicação.`}
+      subtitle="Nesta etapa do ciclo do DevSecOps, forneceremos sugestões de analise de build pensando em segurança de aplicação e como implementa-los utilizando a linguagem de programação e banco de dados do seu projeto."
+      responseIntro={` Me de sugestões de ferramentas e processos de analise de build para ${techValue} com ${dataBaseValue} pensando em segurança de aplicação e como implementa-los`}
       gptResponse={gptResponse}
       status={status}
     >
@@ -36,7 +37,13 @@ export const BuildScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
+        />
+        <Input
+          value={dataBaseValue}
+          onChange={(e) => setDataBaseValue(e.target.value)}
+          fullWidth
+          label="Banco de dados"
         />
         <Input
           value={dataBaseValue}

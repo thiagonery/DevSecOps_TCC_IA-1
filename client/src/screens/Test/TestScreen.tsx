@@ -29,7 +29,7 @@ export const TestScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="test"
       title="Etapa - TEST"
-      subtitle="Teste sua aplicação de forma segura e eficaz"
+      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar sugestões para realizar testes na sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
       responseIntro={`DAST em uma aplicação "${techValue}" utilizando o banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
@@ -39,7 +39,7 @@ export const TestScreen: React.FC = () => {
           value={techValue}
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
-          label="Tecnologia"
+          label="Linguagem de programação"
         />
         <Input
           value={dataBaseValue}
