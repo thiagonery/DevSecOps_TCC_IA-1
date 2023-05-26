@@ -22,7 +22,7 @@ def return_json(prompt):
     
     # assim eu devolvo a resposta
     response = completion.choices[0].text
-    responseFormat = response.replace('\n', '').replace('?','').replace('\\', '').replace(':', '')
+    responseFormat = response.replace('?','').strip()
 
     # criando json
     json = {"content": responseFormat}
