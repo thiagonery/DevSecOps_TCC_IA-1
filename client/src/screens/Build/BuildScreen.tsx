@@ -4,17 +4,18 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTBuild } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const BuildScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
+  const [dataBaseValue, setDataBaseValue] = useState('');
   const [gptResponse, setGptResponse] = useState('');
   const [status, setStatus] = useState<Status>('idle');
 
   const handleFetchGPTBuild = () => {
     setStatus('pending');
 
-    fetchGPTBuild(techValue)
+    fetchDevOpsStep('build', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
@@ -26,7 +27,7 @@ export const BuildScreen: React.FC = () => {
       drawerFocus="build"
       title="Etapa - BUILD"
       subtitle="Construa uma pipeline segura de integração contínua e entrega contínua"
-      responseIntro={`Ferramentas de análise de build para "${techValue}" com foco na segurança da aplicação.`}
+      responseIntro={`Ferramentas de análise de build para "${techValue}" e "${dataBaseValue}" com foco na segurança da aplicação.`}
       gptResponse={gptResponse}
       status={status}
     >
@@ -36,6 +37,12 @@ export const BuildScreen: React.FC = () => {
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
           label="Tecnologia"
+        />
+        <Input
+          value={dataBaseValue}
+          onChange={(e) => setDataBaseValue(e.target.value)}
+          fullWidth
+          label="Banco de dados"
         />
       </Box>
       <Button
