@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTMonitor } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const MonitorScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const MonitorScreen: React.FC = () => {
   const handleFetchGPTMonitor = () => {
     setStatus('pending');
 
-    fetchGPTMonitor(techValue, dataBaseValue)
+    fetchDevOpsStep('monitor', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);

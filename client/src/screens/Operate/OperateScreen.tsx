@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTOperate } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const OperateScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const OperateScreen: React.FC = () => {
   const handleFetchGPTOperate = () => {
     setStatus('pending');
 
-    fetchGPTOperate(techValue, dataBaseValue)
+    fetchDevOpsStep('operate', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);

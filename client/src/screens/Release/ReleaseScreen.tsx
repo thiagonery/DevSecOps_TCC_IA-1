@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTRelease } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const ReleaseScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -17,7 +17,7 @@ export const ReleaseScreen: React.FC = () => {
   const handleFetchGPTRelease = () => {
     setStatus('pending');
 
-    fetchGPTRelease(techValue, dataBaseValue)
+    fetchDevOpsStep('release', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
