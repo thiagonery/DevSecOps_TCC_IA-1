@@ -1,6 +1,6 @@
-import { DrawerScreens } from '@common/types';
+import { DevOpsSteps } from '@common/types';
 
 export interface IBackground {
-  drawerFocus?: DrawerScreens;
+  drawerFocus?: DevOpsSteps;
   children: React.ReactElement | React.ReactElement[];
 }
