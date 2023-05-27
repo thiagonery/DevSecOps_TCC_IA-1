@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTBuild } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const BuildScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
