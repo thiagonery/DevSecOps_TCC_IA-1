@@ -15,7 +15,7 @@ export const BuildScreen: React.FC = () => {
   const handleFetchGPTBuild = () => {
     setStatus('pending');
 
-    fetchGPTBuild(techValue, dataBaseValue)
+    fetchDevOpsStep('build', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
@@ -38,12 +38,6 @@ export const BuildScreen: React.FC = () => {
           onChange={(e) => setTechValue(e.target.value)}
           fullWidth
           label="Linguagem de programação"
-        />
-        <Input
-          value={dataBaseValue}
-          onChange={(e) => setDataBaseValue(e.target.value)}
-          fullWidth
-          label="Banco de dados"
         />
         <Input
           value={dataBaseValue}
