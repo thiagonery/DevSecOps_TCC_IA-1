@@ -3,9 +3,7 @@ import os
 from dotenv import load_dotenv
 
 def format_response(response):
-    response = response.strip().replace('\n', ' ')
-    response = response.replace('?','').strip()
-    return response
+    return response.replace('?','').strip()
 
 def return_json(prompt):
     # carregando o .env

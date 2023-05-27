@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Status } from '@common/types';
 import { SkeletonLayout } from '@components';
 import { Box, Button, Input } from '@components';
-import { fetchGPTBuild } from '@services/gpt';
+import { fetchDevOpsStep } from '@services/gpt';
 
 export const BuildScreen: React.FC = () => {
   const [techValue, setTechValue] = useState('');
@@ -15,7 +15,7 @@ export const BuildScreen: React.FC = () => {
   const handleFetchGPTBuild = () => {
     setStatus('pending');
 
-    fetchGPTBuild(techValue, dataBaseValue)
+    fetchDevOpsStep('build', techValue, dataBaseValue)
       .then((res) => {
         setStatus('succeeded');
         setGptResponse(res.data.content);
@@ -28,7 +28,7 @@ export const BuildScreen: React.FC = () => {
       drawerFocus="build"
       title="Etapa - BUILD"
       subtitle="Nesta etapa do ciclo do DevSecOps, forneceremos sugestões de analise de build pensando em segurança de aplicação e como implementa-los utilizando a linguagem de programação e banco de dados do seu projeto."
-      responseIntro={` Me de sugestões de ferramentas e processos de analise de build para ${techValue} com ${dataBaseValue} pensando em segurança de aplicação e como implementa-los`}
+      responseIntro={`Me dê sugestões de ferramentas e processos de análise de build para ${techValue} com ${dataBaseValue} pensando em segurança de aplicação e como implementá-los`}
       gptResponse={gptResponse}
       status={status}
     >
