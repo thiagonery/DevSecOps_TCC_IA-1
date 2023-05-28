@@ -29,7 +29,7 @@ export const OperateScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="operate"
       title="Etapa - OPERATE"
-      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar formas seguras de operar o sua aplicação utilizando linguagem de programação e banco de dados do seu projeto."
+      subtitle="Nesta etapa do ciclo de DevSecOps, abordaremos formas seguras de operar a sua aplicação, utilizando a linguagem de programação e o banco de dados do seu projeto."
       responseIntro={`Implantação de ferramentas de monitoramento e analise de logs, utilizando "${techValue}" e "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
