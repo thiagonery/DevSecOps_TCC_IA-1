@@ -29,7 +29,7 @@ export const TestScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="test"
       title="Etapa - TEST"
-      subtitle="Nesta etapa do ciclo de DevSecOps iremos abordar sugestões para realizar testes na sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
+      subtitle="Nesta etapa do ciclo de DevSecOps, abordaremos sugestões para realizar testes na sua aplicação, utilizando a linguagem de programação e o banco de dados do seu projeto."
       responseIntro={`DAST em uma aplicação "${techValue}" utilizando o banco de dados "${dataBaseValue}":`}
       gptResponse={gptResponse}
       status={status}
