@@ -29,7 +29,7 @@ export const DeployScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="deploy"
       title="Etapa - DEPLOY"
-      subtitle="Nesta parte do ciclo de DevSecOps iremos abordar sugestões para realizar o deploy da sua aplicação utilizando a linguagem de programação e banco de dados do seu projeto."
+      subtitle="Nesta parte do ciclo de DevSecOps, abordaremos sugestões para realizar o deploy da sua aplicação, utilizando a linguagem de programação e banco de dados do seu projeto."
       responseIntro={`Ferramentas de deploy utilizando ${techValue} e ${dataBaseValue}, priorizando a segurança da aplicação:`}
       gptResponse={gptResponse}
       status={status}

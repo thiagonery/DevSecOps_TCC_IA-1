@@ -31,7 +31,7 @@ export const CodeScreen: React.FC = () => {
     <SkeletonLayout
       drawerFocus="code"
       title="Etapa - CODE"
-      subtitle="Nesta etapa do ciclo de DevSecOps abordaremos dicas para a revisão de código pensando em segurança da sua aplicação, baseado na linguagem de programação e banco de dados que você está utilizando no seu projeto."
+      subtitle="Nesta etapa do ciclo de DevSecOps, abordaremos dicas para a revisão de código, pensando na segurança da sua aplicação, com base na linguagem de programação e banco de dados do seu projeto."
       responseIntro={`Revisão de código utilizando ${techValue} e ${dataBaseValue}, com foco em segurança`}
       gptResponse={gptResponse}
       status={status}

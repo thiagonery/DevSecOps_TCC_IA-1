@@ -11,8 +11,8 @@ def plan():
 
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
-
-        prompt = f"quais são as possíveis vulnerabilidades para {technology}, com o banco de dados {sgbd}"
+     
+        prompt = f"quais são as principais vulnerabilidades para {technology}, com o banco de dados {sgbd} e como se prevenir delas"
         response = return_json(prompt)
               
         return jsonify(response)
@@ -28,7 +28,6 @@ def code():
         sgbd = query_params["sgbd"]
 
         prompt = f"dicas para revisão de código em {technology} com {sgbd} pensando em segurança de aplicação, considerando sugestões de ferramentas e boas praticas"
-
         response = return_json(prompt)
       
         return jsonify(response)
@@ -57,8 +56,8 @@ def teste():
         
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
-        
-        prompt = f"como aplicar DAST para uma aplicação em {technology} com {sgbd}"
+
+        prompt = f"dicas para aplicar DAST para uma aplicação em {technology} com {sgbd} na pratica"
         response = return_json(prompt)
       
         return jsonify(response)
@@ -73,7 +72,7 @@ def deploy():
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
 
-        prompt = f"Ferramentas de deploy para uma aplicação em {technology} e {sgbd} priorizando segurança"
+        prompt = f"sugestão de ferramentas e praticas de deploy para uma aplicação em {technology} e {sgbd} que trazem praticas de segurança e como utiliza-las"
         response = return_json(prompt)
       
         return jsonify(response)
@@ -87,8 +86,8 @@ def release():
 
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
-
-        prompt = f"Planejamento de um pentest para uma aplicação em {technology} e {sgbd}"
+        
+        prompt = f"dicas de ferramentas e boas praticas para a aplicação de um pentest em uma aplicação {technology} com {sgbd}"
         response = return_json(prompt)
         
         return jsonify(response)
@@ -103,7 +102,7 @@ def operate():
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
 
-        prompt = f"Passo a passo para implementar logs em uma aplicação em {technology} e {sgbd}, incluindo ferramentas de monitoramento e analise de logs"
+        prompt = f"dicas de ferramentas e passo a passo para implementar logs em uma aplicação em {technology} com {sgbd}, incluindo monitoramento e analise de logs"
         response = return_json(prompt)
 
         return jsonify(response)
@@ -118,9 +117,10 @@ def monitor():
         technology = query_params["technology"]
         sgbd = query_params["sgbd"]
 
-        prompt = f"Dicas para implementar um SIEM para uma aplicação em {technology} e {sgbd}"
+        prompt = f"Dicas de boas praticas e ferramentas para implementar um SIEM para uma aplicação em {technology} e {sgbd}"
         response = return_json(prompt)
 
         return jsonify(response)
     except Exception as e:
         return {"content": e.message}
+
